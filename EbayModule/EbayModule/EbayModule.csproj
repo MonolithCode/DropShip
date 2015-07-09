@@ -1,0 +1,1048 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{579D4320-CF8E-49A6-B1EF-F44C180D7083}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EbayModule</RootNamespace>
+    <AssemblyName>EbayModule</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EbayService.cs" />
+    <Compile Include="EbayServiceBase.cs" />
+    <Compile Include="enums\Modes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\eBaySvc\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="view\IEbayService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddDisputeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddDisputeResponseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddDisputeResponseResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddDisputeResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddFixedPriceItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddFixedPriceItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddItemFromSellingManagerTemplateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddItemFromSellingManagerTemplateResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddItemsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddMemberMessageAAQToPartnerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddMemberMessageAAQToPartnerResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddMemberMessageRTQResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddMemberMessageRTQResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddMemberMessagesAAQToBidderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddMemberMessagesAAQToBidderResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddOrderResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddSecondChanceItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddSecondChanceItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddSellingManagerInventoryFolderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddSellingManagerInventoryFolderResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddSellingManagerProductResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddSellingManagerProductResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddSellingManagerTemplateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddSellingManagerTemplateResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddToItemDescriptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddToItemDescriptionResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddToWatchListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddToWatchListResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddTransactionConfirmationItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.AddTransactionConfirmationItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.CompleteSaleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.CompleteSaleResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ConfirmIdentityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ConfirmIdentityResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.CustomSecurityHeaderType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.DeleteMyMessagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.DeleteMyMessagesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.DeleteSellingManagerInventoryFolderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.DeleteSellingManagerInventoryFolderResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.DeleteSellingManagerItemAutomationRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.DeleteSellingManagerItemAutomationRuleResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.DeleteSellingManagerProductResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.DeleteSellingManagerProductResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.DeleteSellingManagerTemplateAutomationRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.DeleteSellingManagerTemplateAutomationRuleResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.DeleteSellingManagerTemplateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.DeleteSellingManagerTemplateResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.DisableUnpaidItemAssistanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.DisableUnpaidItemAssistanceResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.EndFixedPriceItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.EndFixedPriceItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.EndItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.EndItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.EndItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.EndItemsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ExtendSiteHostedPicturesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ExtendSiteHostedPicturesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.FetchTokenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.FetchTokenResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetAccountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetAccountResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetAdFormatLeadsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetAdFormatLeadsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetAllBiddersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetAllBiddersResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetApiAccessRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetApiAccessRulesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetAttributesCSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetAttributesCSResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetAttributesXSLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetAttributesXSLResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetBestOffersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetBestOffersResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetBidderListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetBidderListResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetCategoriesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetCategoriesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetCategory2CSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetCategory2CSResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetCategoryFeaturesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetCategoryFeaturesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetCategoryMappingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetCategoryMappingsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetCategorySpecificsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetCategorySpecificsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetChallengeTokenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetChallengeTokenResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetCharitiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetCharitiesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetClientAlertsAuthTokenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetClientAlertsAuthTokenResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetContextualKeywordsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetContextualKeywordsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetCrossPromotionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetCrossPromotionsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetDescriptionTemplatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetDescriptionTemplatesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetDisputeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetDisputeResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GeteBayDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GeteBayDetailsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GeteBayOfficialTimeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GeteBayOfficialTimeResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetFeedbackResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetFeedbackResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetHighBiddersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetHighBiddersResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetItemRecommendationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetItemRecommendationsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetItemsAwaitingFeedbackResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetItemsAwaitingFeedbackResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetItemShippingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetItemShippingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetItemTransactionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetItemTransactionsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetMemberMessagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetMemberMessagesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetMessagePreferencesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetMessagePreferencesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetMyeBayBuyingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetMyeBayBuyingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetMyeBayRemindersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetMyeBayRemindersResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetMyeBaySellingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetMyeBaySellingResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetMyMessagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetMyMessagesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetNotificationPreferencesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetNotificationPreferencesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetNotificationsUsageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetNotificationsUsageResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetOrdersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetOrdersResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetOrderTransactionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetOrderTransactionsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetPictureManagerDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetPictureManagerDetailsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetPictureManagerOptionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetPictureManagerOptionsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetProductFamilyMembersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetProductFamilyMembersResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetProductFinderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetProductFinderResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetProductFinderXSLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetProductFinderXSLResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetProductSearchPageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetProductSearchPageResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetProductSearchResultsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetProductSearchResultsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetProductSellingPagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetProductSellingPagesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetPromotionalSaleDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetPromotionalSaleDetailsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetPromotionRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetPromotionRulesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellerDashboardResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellerDashboardResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellerEventsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellerEventsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellerListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellerListResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellerPaymentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellerPaymentsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellerTransactionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellerTransactionsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerAlertsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerAlertsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerEmailLogResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerEmailLogResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerInventoryFolderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerInventoryFolderResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerInventoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerInventoryResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerItemAutomationRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerItemAutomationRuleResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerSaleRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerSaleRecordResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerSoldListingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerSoldListingsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerTemplateAutomationRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerTemplateAutomationRuleResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerTemplatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSellingManagerTemplatesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSessionIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSessionIDResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetShippingDiscountProfilesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetShippingDiscountProfilesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetStoreCategoryUpdateStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetStoreCategoryUpdateStatusResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetStoreCustomPageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetStoreCustomPageResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetStoreOptionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetStoreOptionsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetStorePreferencesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetStorePreferencesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetStoreResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSuggestedCategoriesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetSuggestedCategoriesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetTaxTableResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetTaxTableResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetTokenStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetTokenStatusResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetUserContactDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetUserContactDetailsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetUserDisputesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetUserDisputesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetUserPreferencesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetUserPreferencesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetUserResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetVeROReasonCodeDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetVeROReasonCodeDetailsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetVeROReportStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetVeROReportStatusResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetWantItNowPostResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetWantItNowPostResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetWantItNowSearchResultsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.GetWantItNowSearchResultsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.IssueRefundResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.IssueRefundResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.LeaveFeedbackResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.LeaveFeedbackResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.MoveSellingManagerInventoryFolderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.MoveSellingManagerInventoryFolderResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.PlaceOfferResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.PlaceOfferResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.RelistFixedPriceItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.RelistFixedPriceItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.RelistItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.RelistItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.RemoveFromWatchListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.RemoveFromWatchListResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.RespondToBestOfferResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.RespondToBestOfferResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.RespondToFeedbackResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.RespondToFeedbackResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.RespondToWantItNowPostResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.RespondToWantItNowPostResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseCheckoutStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseCheckoutStatusResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseFixedPriceItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseFixedPriceItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseInventoryStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseInventoryStatusResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseMyMessagesFoldersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseMyMessagesFoldersResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseMyMessagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseMyMessagesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseSellingManagerInventoryFolderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseSellingManagerInventoryFolderResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseSellingManagerProductResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseSellingManagerProductResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseSellingManagerSaleRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseSellingManagerSaleRecordResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseSellingManagerTemplateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ReviseSellingManagerTemplateResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.RevokeTokenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.RevokeTokenResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SaveItemToSellingManagerTemplateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SaveItemToSellingManagerTemplateResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SellerReverseDisputeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SellerReverseDisputeResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SendInvoiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SendInvoiceResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetMessagePreferencesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetMessagePreferencesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetNotificationPreferencesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetNotificationPreferencesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetPictureManagerDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetPictureManagerDetailsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetPromotionalSaleListingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetPromotionalSaleListingsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetPromotionalSaleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetPromotionalSaleResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetSellingManagerFeedbackOptionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetSellingManagerFeedbackOptionsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetSellingManagerItemAutomationRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetSellingManagerItemAutomationRuleResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetSellingManagerTemplateAutomationRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetSellingManagerTemplateAutomationRuleResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetShippingDiscountProfilesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetShippingDiscountProfilesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetStoreCategoriesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetStoreCategoriesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetStoreCustomPageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetStoreCustomPageResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetStorePreferencesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetStorePreferencesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetStoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetStoreResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetTaxTableResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetTaxTableResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetUserNotesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetUserNotesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetUserPreferencesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.SetUserPreferencesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.UploadSiteHostedPicturesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.UploadSiteHostedPicturesResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ValidateChallengeInputResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ValidateChallengeInputResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ValidateTestUserRegistrationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.ValidateTestUserRegistrationResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.VerifyAddFixedPriceItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.VerifyAddFixedPriceItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.VerifyAddItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.VerifyAddItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.VerifyAddSecondChanceItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.VerifyAddSecondChanceItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.VerifyRelistItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.VerifyRelistItemResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.VeROReportItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\EbayModule.eBaySvc.VeROReportItemsResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\eBaySvc\ebaysvc.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\eBaySvc\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\eBaySvc\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\eBaySvc\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\eBaySvc\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
