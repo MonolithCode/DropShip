@@ -41,16 +41,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseProcedures.cs" />
+    <Compile Include="EbayListingUpdateRequest.cs" />
+    <Compile Include="EbayProductManagement.cs" />
     <Compile Include="EbayService.cs" />
-    <Compile Include="EbayServiceBase.cs" />
+    <Compile Include="EbayProperties.cs" />
     <Compile Include="enums\Modes.cs" />
+    <Compile Include="enums\ServiceCallType.cs" />
+    <Compile Include="Extensions\ExtendedRequestType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EbaySecurity.cs" />
+    <Compile Include="Selling.cs" />
     <Compile Include="Service References\eBaySvc\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="view\IEbayBaseProcedures.cs" />
+    <Compile Include="view\IEbayProductManagement.cs" />
     <Compile Include="view\IEbayService.cs" />
+    <Compile Include="view\IEbayProperties.cs" />
+    <Compile Include="view\IEbaySecurity.cs" />
+    <Compile Include="view\IEbaySelling.cs" />
+    <Compile Include="view\IEbayListingUpdateRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

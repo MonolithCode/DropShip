@@ -4,20 +4,17 @@ using EbayModule.view;
 
 namespace EbayModule
 {
-    public class EbayService : EbayServiceBase, IEbayService
+    public class EbayService : IEbayService
     {
-        public string AppId { get; private set; }
-        public string DevId { get; private set; }
-        public string AuthCert { get; private set; }
-        public string Token { get; private set; }
-        public string RunName { get; private set; }
-        public string SandboxToken { get; private set; }
+        public IEbaySecurity Security { get; private set; }
+        public IEbayProperties Properties { get; private set; }
+        public IEbayBaseProcedures CoreProcedures { get; private set; }
+        public IEbaySelling Sales { get; private set; }
 
-        public string SigninUrl { get { return "https://api.ebay.com/wsapi"; } }
-        public string SandboxSigninUrl { get { return "https://api.sandbox.ebay.com/wsapi"; } }
-        public string ServiceVersion {  get { return "927"; } }
-
-        public Modes Mode { get; set; }
+        public Modes Mode { 
+            get { return Properties.Mode; }
+            set { Properties.Mode = value; }
+        }
 
         /// <summary>
         /// Setup the service
@@ -29,16 +26,14 @@ namespace EbayModule
         /// <param name="runname">App Name</param>
         /// <param name="sandboxToken">Sandbox Token</param>
         /// <param name="mode">Live/Test Environment</param>
-        public EbayService(string appid, string devid, string authCert, string token, 
+        public EbayService(string appid, string devid, string authCert, string token,
             string runname, string sandboxToken, Modes mode)
         {
-            AppId = appid;
-            DevId = devid;
-            AuthCert = authCert;
-            Token = token;
-            RunName = runname;
-            SandboxToken = sandboxToken;
-            Mode = mode;
+            Properties = new EbayProperties(appid, devid, authCert, token, runname, sandboxToken, mode, SiteCodeType.UK);
+            CoreProcedures = new BaseProcedures(Properties);
+            CoreProcedures = new BaseProcedures(Properties);
+            Security = new EbaySecurity(Properties, CoreProcedures);
+            Sales = new EbaySelling(Properties, CoreProcedures);
         }
 
         /// <summary>
@@ -47,47 +42,21 @@ namespace EbayModule
         /// <returns></returns>
         public GetCategoriesResponseType GetEbayCategories()
         {
-            const string callname = "GetCategories";
-            var endpoint = SigninUrl + "?callname=" + callname +
-                                    "&appid=" + AppId +
-                                    "&version=" + ServiceVersion +
-                                    "&routing=default";
-            //&siteid=3 - UK
-            var service = new eBayAPIInterfaceClient("eBayAPI", endpoint);
+            var service = CoreProcedures.EbayServiceContext(ServiceCallType.GetCategories);
             var req = new GetCategoriesRequest
             {
-                RequesterCredentials = new CustomSecurityHeaderType
-                {
-                    Credentials =
-                        new UserIdPasswordType
-                        {
-                            AppId = AppId,
-                            DevId = DevId,
-                            AuthCert = AuthCert
-                        },
-                    eBayAuthToken = Token
-                }
+                RequesterCredentials = CoreProcedures.Credentials()
             };
-
-            var detailLevels = new DetailLevelCodeType[1];
-            detailLevels[0] = DetailLevelCodeType.ReturnAll;
 
             var reqType = new GetCategoriesRequestType
             {
-                Version = ServiceVersion,
-                WarningLevel = WarningLevelCodeType.Low,
-                DetailLevel = detailLevels,
-
                 CategorySiteID = "0"
             };
-
+            CoreProcedures.SetupRequestType<GetCategoriesRequestType>(reqType);
 
             var res = service.GetCategories(ref req.RequesterCredentials, reqType);
             return res;
             //return (res.Ack == AckCodeType.Success || res.Ack == AckCodeType.Warning);
         }
-    
-
-
-}
+    }
 }
