@@ -2,6 +2,6 @@
 {
     public interface IEbayProductManagement
     {
-        IEbayListingUpdateRequest ListingUpdate { get; set; 
+        IEbayListingUpdateRequest ListingUpdate { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Linq;
 using EbayModule.eBaySvc;
 using EbayModule.enums;
@@ -44,6 +43,18 @@ namespace EbayModule
             return null;
         }
 
-        
+
+
+        public IEbayListingUpdateRequest ListingUpdate
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

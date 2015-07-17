@@ -4,13 +4,16 @@ using EbayModule.view;
 
 namespace EbayModule
 {
-    public class EbayService : IEbayService
+    public class EbayService : BaseProcedures, IEbayService
     {
         public IEbaySecurity Security { get; private set; }
-        public IEbayProperties Properties { get; private set; }
-        public IEbayBaseProcedures CoreProcedures { get; private set; }
         public IEbaySelling Sales { get; private set; }
 
+        public IEbayProperties SystemProperties
+        {
+            get { return Properties; }
+        }
+            
         public Modes Mode { 
             get { return Properties.Mode; }
             set { Properties.Mode = value; }
@@ -27,13 +30,11 @@ namespace EbayModule
         /// <param name="sandboxToken">Sandbox Token</param>
         /// <param name="mode">Live/Test Environment</param>
         public EbayService(string appid, string devid, string authCert, string token,
-            string runname, string sandboxToken, Modes mode)
+            string runname, string sandboxToken, Modes mode, SiteCodeType codeType)
+            : base(new EbayProperties(appid, devid, authCert, token, runname, sandboxToken, mode, codeType))
         {
-            Properties = new EbayProperties(appid, devid, authCert, token, runname, sandboxToken, mode, SiteCodeType.UK);
-            CoreProcedures = new BaseProcedures(Properties);
-            CoreProcedures = new BaseProcedures(Properties);
-            Security = new EbaySecurity(Properties, CoreProcedures);
-            Sales = new EbaySelling(Properties, CoreProcedures);
+            Security = new EbaySecurity(Properties, this);
+            Sales = new EbaySelling(Properties, this);
         }
 
         /// <summary>
@@ -42,17 +43,17 @@ namespace EbayModule
         /// <returns></returns>
         public GetCategoriesResponseType GetEbayCategories()
         {
-            var service = CoreProcedures.EbayServiceContext(ServiceCallType.GetCategories);
+            var service = EbayServiceContext(ServiceCallType.GetCategories);
             var req = new GetCategoriesRequest
             {
-                RequesterCredentials = CoreProcedures.Credentials()
+                RequesterCredentials = Credentials()
             };
 
             var reqType = new GetCategoriesRequestType
             {
                 CategorySiteID = "0"
             };
-            CoreProcedures.SetupRequestType<GetCategoriesRequestType>(reqType);
+            SetupRequestType<GetCategoriesRequestType>(reqType);
 
             var res = service.GetCategories(ref req.RequesterCredentials, reqType);
             return res;
