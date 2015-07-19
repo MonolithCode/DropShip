@@ -1,7 +1,9 @@
-﻿namespace EbayModule.view
+﻿using EbayModule.Extensions;
+
+namespace EbayModule.view
 {
     public interface IEbayProductManagement
     {
-        IEbayListingUpdateRequest ListingUpdate { get; set; }
+        bool UpdateListing(EbayListingUpdateRequest request);
     }
 }

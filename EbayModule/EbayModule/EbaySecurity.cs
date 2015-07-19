@@ -32,7 +32,7 @@ namespace EbayModule
             var service = CoreProcedures.EbayServiceContext(ServiceCallType.FetchToken);
             var r = new FetchTokenRequest
             {
-                RequesterCredentials = CoreProcedures.Credentials()
+                RequesterCredentials = Properties.EbayCredentials
             };
             //Required if the secret key is not provided
             //r.RequesterCredentials.Credentials.Username = "";

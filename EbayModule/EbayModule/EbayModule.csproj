@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseProcedures.cs" />
-    <Compile Include="EbayListingUpdateRequest.cs" />
+    <Compile Include="Extensions\EbayListingUpdateRequest.cs" />
     <Compile Include="EbayProductManagement.cs" />
     <Compile Include="EbayService.cs" />
     <Compile Include="EbayProperties.cs" />
@@ -51,7 +51,7 @@
     <Compile Include="Extensions\ExtendedRequestType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EbaySecurity.cs" />
-    <Compile Include="Selling.cs" />
+    <Compile Include="EbaySelling.cs" />
     <Compile Include="Service References\eBaySvc\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

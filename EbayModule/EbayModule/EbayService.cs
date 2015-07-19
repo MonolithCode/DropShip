@@ -29,6 +29,7 @@ namespace EbayModule
         /// <param name="runname">App Name</param>
         /// <param name="sandboxToken">Sandbox Token</param>
         /// <param name="mode">Live/Test Environment</param>
+        /// <param name="codeType">Site code for ebay</param>
         public EbayService(string appid, string devid, string authCert, string token,
             string runname, string sandboxToken, Modes mode, SiteCodeType codeType)
             : base(new EbayProperties(appid, devid, authCert, token, runname, sandboxToken, mode, codeType))
@@ -38,7 +39,7 @@ namespace EbayModule
         }
 
         /// <summary>
-        /// Get current eBay categories
+        /// Get current eBay categories - All of them
         /// </summary>
         /// <returns></returns>
         public GetCategoriesResponseType GetEbayCategories()
@@ -46,7 +47,7 @@ namespace EbayModule
             var service = EbayServiceContext(ServiceCallType.GetCategories);
             var req = new GetCategoriesRequest
             {
-                RequesterCredentials = Credentials()
+                RequesterCredentials = Properties.EbayCredentials
             };
 
             var reqType = new GetCategoriesRequestType

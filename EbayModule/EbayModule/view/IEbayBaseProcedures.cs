@@ -6,7 +6,6 @@ namespace EbayModule.view
     public interface IEbayBaseProcedures
     {
         eBayAPIInterfaceClient EbayServiceContext(ServiceCallType callName);
-        CustomSecurityHeaderType Credentials();
-        T SetupRequestType<T>(AbstractRequestType requestType);
+        void SetupRequestType<T>(AbstractRequestType requestType);
     }
 }

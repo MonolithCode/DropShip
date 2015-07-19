@@ -2,8 +2,8 @@
 {
     public interface IEbayListingUpdateRequest
     {
-        string ItemId { get; }
-        void MarkAsShipped();
+        string ItemId { get; set; }
+        void MarkAsShipped(bool shipped = true);
         
     }
 }

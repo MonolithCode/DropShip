@@ -2,6 +2,7 @@
 using System.Linq;
 using EbayModule.eBaySvc;
 using EbayModule.enums;
+using EbayModule.Extensions;
 using EbayModule.view;
 
 namespace EbayModule
@@ -22,12 +23,18 @@ namespace EbayModule
             CoreProcedures = coreProcedures;
         }
 
-        public CompleteSaleResponseType UpdateOrder(CompleteSaleRequestType request)
-        {           
+        /// <summary>
+        /// Submit an update to an Item
+        /// </summary>
+        /// <param name="request">Request construct to submit</param>
+        /// <returns></returns>
+        public bool UpdateListing(EbayListingUpdateRequest request)
+        {
             var service = CoreProcedures.EbayServiceContext(ServiceCallType.CompleteSale);
-            CoreProcedures.SetupRequestType<GetOrdersRequestType>(request);
-            var credentials = CoreProcedures.Credentials();
-            var apicall = service.CompleteSale(ref credentials, request);
+            var req = request.RequestType;
+            CoreProcedures.SetupRequestType<CompleteSaleRequestType>(req);
+            var credentials = Properties.EbayCredentials;
+            var apicall = service.CompleteSale(ref credentials, req);
             if (apicall.Errors != null)
             {
                 foreach (var e in apicall.Errors.ToArray())
@@ -35,26 +42,8 @@ namespace EbayModule
                     //Log errors
                 }
             }
-            if ((apicall.Ack == AckCodeType.Success || apicall.Ack == AckCodeType.Warning))
-            {
-                //Log Success
-                return apicall;
-            }
-            return null;
+            return (apicall.Ack == AckCodeType.Success || apicall.Ack == AckCodeType.Warning);
         }
 
-
-
-        public IEbayListingUpdateRequest ListingUpdate
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
     }
 }

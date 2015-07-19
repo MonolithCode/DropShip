@@ -1,5 +1,4 @@
-﻿
-using EbayModule.eBaySvc;
+﻿using EbayModule.eBaySvc;
 using EbayModule.enums;
 
 namespace EbayModule.view   
@@ -17,6 +16,8 @@ namespace EbayModule.view
             
         Modes Mode { get; set; }
         WarningLevelCodeType WarningLevel { get; set; }
-        SiteCodeType SiteId { get; }
+        SiteCodeType SiteId { get; set; }
+        CustomSecurityHeaderType EbayCredentials { get; }
+
     }
 }
