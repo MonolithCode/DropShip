@@ -34,8 +34,8 @@ namespace EbayModule
             string runname, string sandboxToken, Modes mode, SiteCodeType codeType)
             : base(new EbayProperties(appid, devid, authCert, token, runname, sandboxToken, mode, codeType))
         {
-            Security = new EbaySecurity(Properties, this);
-            Sales = new EbaySelling(Properties, this);
+            Security = new EbaySecurity(Properties);
+            Sales = new EbaySelling(Properties);
         }
 
         /// <summary>

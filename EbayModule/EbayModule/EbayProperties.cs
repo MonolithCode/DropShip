@@ -55,7 +55,11 @@ namespace EbayModule
             }
         }
 
+        /// <summary>
+        /// Service Mode (live/test)
+        /// </summary>
         public Modes Mode { get; set; }
+
         public EbayProperties(string appid, string devid, string authCert, string token, 
             string runname, string sandboxToken, Modes mode, SiteCodeType siteCode)
         {

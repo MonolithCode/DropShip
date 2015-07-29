@@ -7,7 +7,7 @@ namespace EbayModule.view
     {
         IEbayProductManagement ProductManagement { get; }
         GetMyeBaySellingResponseType GetMyEbayListings(OrderStatusFilterCodeType orderType, int pageNumber=1);
-        GetSellerTransactionsResponseType GetSales(DateTime from, DateTime to);
+        GetSellerTransactionsResponseType GetSales(DateTime from, DateTime to, int pageNumber);
         GetOrdersResponseType GetOrderDetails(string[] orderIds);
     }
 }

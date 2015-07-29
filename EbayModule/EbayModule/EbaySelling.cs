@@ -6,17 +6,13 @@ using EbayModule.view;
 
 namespace EbayModule
 {
-    public class EbaySelling : IEbaySelling
+    public class EbaySelling : BaseProcedures, IEbaySelling
     {
         public IEbayProductManagement ProductManagement { get; private set; }
-        internal IEbayProperties Properties { get; private set; }
-        internal IEbayBaseProcedures CoreProcedures { get; private set; }
 
-        public EbaySelling(IEbayProperties properties, IEbayBaseProcedures coreProcedures)
+        public EbaySelling(IEbayProperties properties) : base (properties)
         {
-            Properties = properties;
-            CoreProcedures = coreProcedures;
-            ProductManagement = new EbayProductManagement(properties, CoreProcedures);
+            ProductManagement = new EbayProductManagement(properties);
         }
 
         /// <summary>
@@ -26,12 +22,12 @@ namespace EbayModule
         /// <returns></returns>
         public GetOrdersResponseType GetOrderDetails(string[] orderIds)
         {   
-            var service = CoreProcedures.EbayServiceContext(ServiceCallType.GetOrders);
+            var service = EbayServiceContext(ServiceCallType.GetOrders);
             var request = new GetOrdersRequestType
             {
                 OrderIDArray = orderIds
             };
-            CoreProcedures.SetupRequestType<GetOrdersRequestType>(request);
+            SetupRequestType<GetOrdersRequestType>(request);
             var credentials = Properties.EbayCredentials;
             var apicall = service.GetOrders(ref credentials, request);
             if (apicall.Errors != null)
@@ -55,9 +51,9 @@ namespace EbayModule
         /// <param name="from"></param>
         /// <param name="to"></param>
         /// <returns></returns>
-        public GetSellerTransactionsResponseType GetSales(DateTime from, DateTime to)
+        public GetSellerTransactionsResponseType GetSales(DateTime from, DateTime to, int pageNumber = 1)
         {
-            var service = CoreProcedures.EbayServiceContext(ServiceCallType.GetSellerTransactions);
+            var service = EbayServiceContext(ServiceCallType.GetSellerTransactions);
 
             var request = new GetSellerTransactionsRequestType
             {
@@ -69,13 +65,13 @@ namespace EbayModule
                 {
                     EntriesPerPage = 200,
                     EntriesPerPageSpecified = true,
-                    PageNumber = 1,
+                    PageNumber = pageNumber,
                     PageNumberSpecified = true
                 },
                 Platform = TransactionPlatformCodeType.eBay,
                 PlatformSpecified = true
             };
-            CoreProcedures.SetupRequestType<GetSellerTransactionsRequestType>(request);
+            SetupRequestType<GetSellerTransactionsRequestType>(request);
             var credentials = Properties.EbayCredentials;
             var apicall = service.GetSellerTransactions(ref credentials, request);
             if (apicall.Errors != null)
@@ -101,7 +97,7 @@ namespace EbayModule
         /// <returns></returns>
         public GetMyeBaySellingResponseType GetMyEbayListings(OrderStatusFilterCodeType orderType, int pageNumber = 1)
         {
-            var service = CoreProcedures.EbayServiceContext(ServiceCallType.GetMyeBaySelling);
+            var service = EbayServiceContext(ServiceCallType.GetMyeBaySelling);
             var filter = new ItemListCustomizationType {
                 Include = true,
                 Pagination = new PaginationType
@@ -118,7 +114,7 @@ namespace EbayModule
                 ActiveList = filter,
                 SoldList = filter
             };
-            CoreProcedures.SetupRequestType<GetMyeBaySellingRequestType>(request);
+            SetupRequestType<GetMyeBaySellingRequestType>(request);
             var credentials = Properties.EbayCredentials;
             var apicall = service.GetMyeBaySelling(ref credentials, request);
             if (apicall.Errors != null)

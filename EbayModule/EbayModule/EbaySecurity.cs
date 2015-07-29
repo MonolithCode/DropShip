@@ -6,20 +6,15 @@ using EbayModule.view;
 
 namespace EbayModule
 {
-    public class EbaySecurity : IEbaySecurity
+    public class EbaySecurity : BaseProcedures, IEbaySecurity
     {
-        internal IEbayProperties Properties { get; private set; }
-        internal IEbayBaseProcedures CoreProcedures { get; private set; }
 
-        public EbaySecurity(IEbayProperties properties, IEbayBaseProcedures coreProcedures)
+        public EbaySecurity(IEbayProperties properties) : base (properties)
         {
-            if (properties == null || coreProcedures == null)
+            if (properties == null)
             {
-                throw new NotImplementedException();
+                throw new NotImplementedException("IEbayProperties");
             }
-
-            Properties = properties;
-            CoreProcedures = coreProcedures;
         }
 
         /// <summary>
@@ -29,7 +24,7 @@ namespace EbayModule
         /// <returns></returns>
         public string FetchAccessToken(Guid secretKey)
         {
-            var service = CoreProcedures.EbayServiceContext(ServiceCallType.FetchToken);
+            var service = EbayServiceContext(ServiceCallType.FetchToken);
             var r = new FetchTokenRequest
             {
                 RequesterCredentials = Properties.EbayCredentials

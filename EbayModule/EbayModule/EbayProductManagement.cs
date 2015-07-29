@@ -7,20 +7,14 @@ using EbayModule.view;
 
 namespace EbayModule
 {
-    public class EbayProductManagement : IEbayProductManagement
+    public class EbayProductManagement : BaseProcedures, IEbayProductManagement
     {
-        internal IEbayBaseProcedures CoreProcedures { get; private set; }
-        internal IEbayProperties Properties { get; private set; }
-
-        public EbayProductManagement(IEbayProperties properties, IEbayBaseProcedures coreProcedures)
+        public EbayProductManagement(IEbayProperties properties) : base(properties)
         {
-            if (properties == null || coreProcedures == null)
+            if (properties == null)
             {
-                throw new NotImplementedException();
+                throw new NotImplementedException("IEbayProperties");
             }
-
-            Properties = properties;
-            CoreProcedures = coreProcedures;
         }
 
         /// <summary>
@@ -30,9 +24,9 @@ namespace EbayModule
         /// <returns></returns>
         public bool UpdateListing(EbayListingUpdateRequest request)
         {
-            var service = CoreProcedures.EbayServiceContext(ServiceCallType.CompleteSale);
+            var service = EbayServiceContext(ServiceCallType.CompleteSale);
             var req = request.RequestType;
-            CoreProcedures.SetupRequestType<CompleteSaleRequestType>(req);
+            SetupRequestType<CompleteSaleRequestType>(req);
             var credentials = Properties.EbayCredentials;
             var apicall = service.CompleteSale(ref credentials, req);
             if (apicall.Errors != null)

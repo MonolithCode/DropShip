@@ -41,17 +41,5 @@ namespace EbayModule
             requestType.WarningLevel = WarningLevelCodeType.Low;
             requestType.WarningLevelSpecified = true;
         }
-
-        //public T SetupRequestType<T>(AbstractRequestType requestType)
-        //{
-        //    requestType.Version = Properties.ServiceVersion;
-        //    requestType.DetailLevel = new[]
-        //    {
-        //        DetailLevelCodeType.ReturnAll
-        //    };
-        //    requestType.WarningLevel = WarningLevelCodeType.Low;
-        //    requestType.WarningLevelSpecified = true;
-        //    return (T)Convert.ChangeType(requestType, typeof(T), CultureInfo.InvariantCulture);
-        //}
     }
 }
