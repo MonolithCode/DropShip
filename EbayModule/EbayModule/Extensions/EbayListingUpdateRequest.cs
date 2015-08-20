@@ -38,10 +38,12 @@ namespace EbayModule.Extensions
             RequestType.Shipped = setting;
         }
 
-        /// <summary>
-        /// Submits the call
-        /// </summary>
-        /// <returns></returns>
+        public void Mark()
+        {
+            
+        }
+
+
         //public CompleteSaleResponseType Submit()
         //{
         //    var service = CoreProcedures.EbayServiceContext(ServiceCallType.CompleteSale);
