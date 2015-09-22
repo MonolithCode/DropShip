@@ -16,7 +16,7 @@ namespace EbayModule
         public SiteCodeType SiteId { get; set; }
 
         public WarningLevelCodeType WarningLevel { get; set; }
-
+ 
         public string SigninUrl
         {
             get
@@ -29,6 +29,25 @@ namespace EbayModule
                         return "https://api.sandbox.ebay.com/wsapi";
                     default:
                         return "https://api.ebay.com/wsapi";
+                }
+            }
+        }
+
+        /// <summary>
+        /// Service URL for image uploads
+        /// </summary>
+        public string EpsServerUrl
+        {
+            get
+            {
+                switch (Mode)
+                {
+                    case Modes.Live:
+                        return "https://api.ebay.com/ws/api.dll";
+                    case Modes.Sandbox:
+                        return "https://api.sandbox.ebay.com/ws/api.dll";
+                    default:
+                        return "https://api.ebay.com/ws/api.dll";
                 }
             }
         }

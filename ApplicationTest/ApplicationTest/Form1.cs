@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using EbayModule;
 using EbayModule.eBaySvc;
 using EbayModule.enums;
+using EbayModule.Extensions;
 using EbayModule.view;
 
 namespace ApplicationTest
@@ -27,6 +28,9 @@ namespace ApplicationTest
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string[] mews = new string[1];
+            mews[0] = @"C:\Users\Aaron\Downloads\WIN_20150618_192413.JPG";
+            Service.Sales.ProductManagement.ImageManager.UpLoadPictureFile(PhotoDisplayCodeType.CustomCode, @"C:\Users\Aaron\Downloads\WIN_20150618_192413.JPG");
             Service.Sales.GetMyEbayListings(OrderStatusFilterCodeType.All);
         }
     }

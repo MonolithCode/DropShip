@@ -7,6 +7,7 @@
         GetMyeBaySelling,
         GetSellerTransactions,
         GetOrders,
-        CompleteSale
+        CompleteSale,
+        UploadSiteHostedPictures
     }
 }

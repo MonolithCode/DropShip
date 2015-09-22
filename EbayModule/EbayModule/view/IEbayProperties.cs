@@ -13,7 +13,8 @@ namespace EbayModule.view
         string SandboxToken { get; }
         string ServiceVersion { get; }
         string SigninUrl { get; }
-            
+        string EpsServerUrl { get; }
+
         Modes Mode { get; set; }
         WarningLevelCodeType WarningLevel { get; set; }
         SiteCodeType SiteId { get; set; }

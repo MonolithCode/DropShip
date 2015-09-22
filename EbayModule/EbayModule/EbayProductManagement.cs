@@ -9,12 +9,15 @@ namespace EbayModule
 {
     public class EbayProductManagement : BaseProcedures, IEbayProductManagement
     {
+        public IEbayImageManagement ImageManager { get; private set; }
+
         public EbayProductManagement(IEbayProperties properties) : base(properties)
         {
             if (properties == null)
             {
                 throw new NotImplementedException("IEbayProperties");
             }
+            ImageManager = new EbayImageManagement(properties);
         }
 
         /// <summary>

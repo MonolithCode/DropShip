@@ -11,6 +11,7 @@
     <AssemblyName>EbayModule</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -49,6 +51,7 @@
     <Compile Include="enums\Modes.cs" />
     <Compile Include="enums\ServiceCallType.cs" />
     <Compile Include="Extensions\ExtendedRequestType.cs" />
+    <Compile Include="EbayImageManagement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EbaySecurity.cs" />
     <Compile Include="EbaySelling.cs" />
@@ -57,6 +60,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="SiteUtility.cs" />
     <Compile Include="view\IEbayBaseProcedures.cs" />
     <Compile Include="view\IEbayProductManagement.cs" />
     <Compile Include="view\IEbayService.cs" />
@@ -64,6 +68,7 @@
     <Compile Include="view\IEbaySecurity.cs" />
     <Compile Include="view\IEbaySelling.cs" />
     <Compile Include="view\IEbayListingUpdateRequest.cs" />
+    <Compile Include="view\IEbayImageManagement.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

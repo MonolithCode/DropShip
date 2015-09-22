@@ -50,6 +50,7 @@ namespace EbayModule
         /// </summary>
         /// <param name="from"></param>
         /// <param name="to"></param>
+        /// <param name="pageNumber"></param>
         /// <returns></returns>
         public GetSellerTransactionsResponseType GetSales(DateTime from, DateTime to, int pageNumber = 1)
         {
