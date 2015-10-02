@@ -13,7 +13,7 @@ namespace EbayModule
 {
     public class EbayImageManagement : BaseProcedures, IEbayImageManagement
     {
-        private SiteUtility _utility;
+        private ISiteUtility _utility;
         public EbayImageManagement(IEbayProperties properties) : base(properties)
         {
             _utility = new SiteUtility();
@@ -87,16 +87,16 @@ namespace EbayModule
             UploadSiteHostedPicturesResponseType uploadSiteHostedPicturesResponseType1 = null;
             try
             {
-                XmlDocument xmlDoc = _utility.serializeToXmlDoc(request);
-                _utility.fixEncoding(xmlDoc);
-                _utility.addApiCredentials(xmlDoc, Properties);
-                _utility.updateElementName(xmlDoc, "UploadSiteHostedPicturesRequestType", "UploadSiteHostedPicturesRequest");
+                XmlDocument xmlDoc = _utility.SerializeToXmlDoc(request);
+                _utility.FixEncoding(xmlDoc);
+                _utility.AddApiCredentials(xmlDoc, Properties);
+                _utility.UpdateElementName(xmlDoc, "UploadSiteHostedPicturesRequestType", "UploadSiteHostedPicturesRequest");
                 string outerXml = SendFile(fileName, xmlDoc.OuterXml);
                 XmlDocument xmlDocument = new XmlDocument();
                 xmlDocument.LoadXml(outerXml);
-                _utility.updateElementName(xmlDocument, "UploadSiteHostedPicturesResponse", "UploadSiteHostedPicturesResponseType");
+                _utility.UpdateElementName(xmlDocument, "UploadSiteHostedPicturesResponse", "UploadSiteHostedPicturesResponseType");
                 outerXml = xmlDocument.OuterXml;
-                uploadSiteHostedPicturesResponseType1 = (UploadSiteHostedPicturesResponseType)_utility.deserializeFromXml(outerXml, typeof(UploadSiteHostedPicturesResponseType));
+                uploadSiteHostedPicturesResponseType1 = (UploadSiteHostedPicturesResponseType)_utility.DeserializeFromXml(outerXml, typeof(UploadSiteHostedPicturesResponseType));
                 if (uploadSiteHostedPicturesResponseType1 != null && uploadSiteHostedPicturesResponseType1.Errors != null && uploadSiteHostedPicturesResponseType1.Errors.Length > 0)
                 {
                     //Error
@@ -119,7 +119,7 @@ namespace EbayModule
 
             version10.Headers.Add("X-EBAY-API-COMPATIBILITY-LEVEL", Properties.ServiceVersion);
             var headers = version10.Headers;
-            var siteId = SiteUtility.GetSiteID(Properties.SiteId);
+            var siteId = _utility.GetSiteID(Properties.SiteId);
             headers.Add("X-EBAY-API-SITEID", siteId.ToString());
             version10.Headers.Add("X-EBAY-API-DETAIL-LEVEL", "0");
             version10.Headers.Add("X-EBAY-API-CALL-NAME", "UploadSiteHostedPictures");

@@ -69,6 +69,7 @@
     <Compile Include="view\IEbaySelling.cs" />
     <Compile Include="view\IEbayListingUpdateRequest.cs" />
     <Compile Include="view\IEbayImageManagement.cs" />
+    <Compile Include="view\ISiteUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

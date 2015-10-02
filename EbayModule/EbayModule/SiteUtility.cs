@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Xml;
@@ -10,7 +11,7 @@ using EbayModule.view;
 
 namespace EbayModule
 {
-    public class SiteUtility
+    public class SiteUtility : ISiteUtility
     {
         public string FormatXml(string sUnformattedXml)
         {
@@ -37,31 +38,31 @@ namespace EbayModule
             return stringBuilder.ToString();
         }
 
-        public void updateElementName(XmlDocument doc, string oldName, string newName)
+        public void UpdateElementName(XmlDocument doc, string oldName, string newName)
         {
             XmlElement itemOf = (XmlElement)doc.GetElementsByTagName(oldName)[0];
-            XmlElement name = this.copyElementToName(itemOf, newName);
+            XmlElement name = CopyElementToName(itemOf, newName);
             doc.ReplaceChild(name, itemOf);
         }
 
-        public object deserializeFromXml(string pXmlizedString, Type type)
+        public object DeserializeFromXml(string pXmlizedString, Type type)
         {
             return (new XmlSerializer(type, "urn:ebay:apis:eBLBaseComponents")).Deserialize(new StringReader(pXmlizedString));
         }
 
-        public XmlDocument serializeToXmlDoc(object obj)
+        public XmlDocument SerializeToXmlDoc(object obj)
         {
             XmlSerializer xmlSerializer = new XmlSerializer(obj.GetType(), "urn:ebay:apis:eBLBaseComponents");
             MemoryStream memoryStream = new MemoryStream();
             xmlSerializer.Serialize(memoryStream, obj);
-            memoryStream.Seek((long)0, SeekOrigin.Begin);
+            memoryStream.Seek(0, SeekOrigin.Begin);
             XmlDocument xmlDocument = new XmlDocument();
             xmlDocument.Load(memoryStream);
             memoryStream.Close();
             return xmlDocument;
         }
 
-        public void fixEncoding(XmlDocument doc)
+        public void FixEncoding(XmlDocument doc)
         {
             if (doc.FirstChild.NodeType == XmlNodeType.XmlDeclaration)
             {
@@ -69,30 +70,31 @@ namespace EbayModule
             }
         }
 
-        public void addApiCredentials(XmlDocument doc, IEbayProperties properties)
+        public void AddApiCredentials(XmlDocument doc, IEbayProperties properties)
         {
-            XmlElement xmlElement = doc.CreateElement("RequesterCredentials", "urn:ebay:apis:eBLBaseComponents");
-            XmlElement apiCredential = doc.CreateElement("eBayAuthToken", "urn:ebay:apis:eBLBaseComponents");
+            var xmlElement = doc.CreateElement("RequesterCredentials", "urn:ebay:apis:eBLBaseComponents");
+            var apiCredential = doc.CreateElement("eBayAuthToken", "urn:ebay:apis:eBLBaseComponents");
             apiCredential.InnerText = properties.Token;
             xmlElement.AppendChild(apiCredential);
+            Debug.Assert(doc.DocumentElement != null, "doc.DocumentElement != null");
             doc.DocumentElement.InsertBefore(xmlElement, doc.DocumentElement.FirstChild);
         }
 
-        public XmlElement copyElementToName(XmlElement element, string tagName)
+        public XmlElement CopyElementToName(XmlElement element, string tagName)
         {
-            XmlElement xmlElement = element.OwnerDocument.CreateElement(tagName);
-            for (int i = 0; i < element.Attributes.Count; i++)
+            var xmlElement = element.OwnerDocument.CreateElement(tagName);
+            for (var i = 0; i < element.Attributes.Count; i++)
             {
                 xmlElement.SetAttributeNode((XmlAttribute)element.Attributes[i].CloneNode(true));
             }
-            for (int j = 0; j < element.ChildNodes.Count; j++)
+            for (var j = 0; j < element.ChildNodes.Count; j++)
             {
                 xmlElement.AppendChild(element.ChildNodes[j].CloneNode(true));
             }
             return xmlElement;
         }
 
-        public static int GetSiteID(SiteCodeType SiteCodeType)
+        public int GetSiteID(SiteCodeType SiteCodeType)
         {
             if (!Enum.IsDefined(typeof(SiteValueEnum), SiteCodeType.ToString()))
             {
