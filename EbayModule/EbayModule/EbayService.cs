@@ -22,17 +22,8 @@ namespace EbayModule
         /// <summary>
         /// Setup the service
         /// </summary>
-        /// <param name="appid">Application ID</param>
-        /// <param name="devid"> DevID</param>
-        /// <param name="authCert"> CertID</param>
-        /// <param name="token">Access token</param>
-        /// <param name="runname">App Name</param>
-        /// <param name="sandboxToken">Sandbox Token</param>
-        /// <param name="mode">Live/Test Environment</param>
-        /// <param name="codeType">Site code for ebay</param>
-        public EbayService(string appid, string devid, string authCert, string token,
-            string runname, string sandboxToken, Modes mode, SiteCodeType codeType)
-            : base(new EbayProperties(appid, devid, authCert, token, runname, sandboxToken, mode, codeType))
+        public EbayService(IEbayProperties properties)
+            : base(properties)
         {
             Security = new EbaySecurity(Properties);
             Sales = new EbaySelling(Properties);

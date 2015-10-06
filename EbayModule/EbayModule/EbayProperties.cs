@@ -79,6 +79,14 @@ namespace EbayModule
         /// </summary>
         public Modes Mode { get; set; }
 
+        /// <param name="appid">Application ID</param>
+        /// <param name="devid"> DevID</param>
+        /// <param name="authCert"> CertID</param>
+        /// <param name="token">Access token</param>
+        /// <param name="runname">App Name</param>
+        /// <param name="sandboxToken">Sandbox Token</param>
+        /// <param name="mode">Live/Test Environment</param>
+        /// <param name="siteCode">Site code for ebay</param>
         public EbayProperties(string appid, string devid, string authCert, string token, 
             string runname, string sandboxToken, Modes mode, SiteCodeType siteCode)
         {

@@ -1,0 +1,14 @@
+﻿@model IEnumerable<MonolithDS.Domain.Entities.Product> 
+
+@{
+    ViewBag.Title = "List";
+}
+
+@foreach (var product in Model)
+{
+    <div>
+        <h3>@product.Asin</h3>
+        <h4>@product.Title</h4>
+        <p>@product.Description</p>
+    </div>
+}
