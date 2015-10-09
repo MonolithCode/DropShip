@@ -7,6 +7,7 @@ namespace MonlithDS.DAL.Models
         public DSEntities()
             : base("name=DSEntities")
         {
+            Database.SetInitializer<DSEntities>(new CreateDatabaseIfNotExists<DSEntities>());
         }
 
         public virtual DbSet<AccessProfile> AccessProfile { get; set; }

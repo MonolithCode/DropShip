@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using MonlithDS.DAL.Models;
 using MonolithDS.Domain.Abstract;
 using MonolithDS.Domain.Entities;
 using Moq;

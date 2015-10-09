@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonolithDS.Domain", "MonolithDS.Domain\MonolithDS.Domain.csproj", "{30909CC9-3734-4013-9FBB-04DF57317701}"
 EndProject
@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonolithDS.WebUI", "Monolit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonolithDS.WebUI.Tests", "MonolithDS.WebUI.Tests\MonolithDS.WebUI.Tests.csproj", "{A427850F-9E9C-4B23-96D4-AAD6CA7AA621}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonlithDS.DAL", "MonlithDS.DAL\MonlithDS.DAL.csproj", "{E6A7FC4A-4AE2-418E-B785-DEE247B19D2B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonolithDS.DAL", "MonlithDS.DAL\MonolithDS.DAL.csproj", "{E6A7FC4A-4AE2-418E-B785-DEE247B19D2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
