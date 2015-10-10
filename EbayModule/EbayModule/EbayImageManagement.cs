@@ -13,7 +13,7 @@ namespace EbayModule
 {
     public class EbayImageManagement : BaseProcedures, IEbayImageManagement
     {
-        private ISiteUtility _utility;
+        private readonly ISiteUtility _utility;
         public EbayImageManagement(IEbayProperties properties) : base(properties)
         {
             _utility = new SiteUtility();

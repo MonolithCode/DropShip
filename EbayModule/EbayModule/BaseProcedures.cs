@@ -1,7 +1,4 @@
-﻿using System.IO;
-using System.Text;
-using System.Xml;
-using EbayModule.eBaySvc;
+﻿using EbayModule.eBaySvc;
 using EbayModule.enums;
 using EbayModule.view;
 

@@ -10,9 +10,9 @@ namespace EbayModule
     {
         public IEbayProductManagement ProductManagement { get; private set; }
 
-        public EbaySelling(IEbayProperties properties) : base (properties)
+        public EbaySelling(IEbayProperties properties, IEbayProductManagement productManagement) : base (properties)
         {
-            ProductManagement = new EbayProductManagement(properties);
+            ProductManagement = productManagement;
         }
 
         /// <summary>

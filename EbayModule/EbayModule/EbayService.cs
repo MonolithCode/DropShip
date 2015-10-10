@@ -22,11 +22,11 @@ namespace EbayModule
         /// <summary>
         /// Setup the service
         /// </summary>
-        public EbayService(IEbayProperties properties)
+        public EbayService(IEbayProperties properties, IEbaySecurity security, IEbaySelling selling)
             : base(properties)
         {
-            Security = new EbaySecurity(Properties);
-            Sales = new EbaySelling(Properties);
+            Security = security;
+            Sales = selling;
         }
 
         /// <summary>

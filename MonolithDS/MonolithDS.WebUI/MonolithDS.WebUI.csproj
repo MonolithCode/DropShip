@@ -261,7 +261,7 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MonlithDS.DAL\MonlithDS.DAL.csproj">
+    <ProjectReference Include="..\MonlithDS.DAL\MonolithDS.DAL.csproj">
       <Project>{e6a7fc4a-4ae2-418e-b785-dee247b19d2b}</Project>
       <Name>MonlithDS.DAL</Name>
     </ProjectReference>

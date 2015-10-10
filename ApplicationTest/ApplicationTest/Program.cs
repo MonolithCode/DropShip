@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EbayModule.view;
+using Ninject;
 
 namespace ApplicationTest
 {
@@ -16,7 +19,10 @@ namespace ApplicationTest
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            IKernel kernel = new StandardKernel(new Bindings());
+            //kernel.Load(Assembly.GetExecutingAssembly());
+            var service = kernel.Get<IEbayService>();
+            Application.Run(new Form1(service));
         }
     }
 }

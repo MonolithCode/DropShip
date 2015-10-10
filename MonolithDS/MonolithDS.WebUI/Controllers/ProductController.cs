@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using MonlithDS.DAL.Models;
 using MonolithDS.Domain.Abstract;
 
 namespace MonolithDS.WebUI.Controllers
