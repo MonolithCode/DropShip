@@ -48,22 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ebay\EbayListingRepository.cs" />
-    <Compile Include="Ebay\IEbayListingRepository.cs" />
+    <Compile Include="Ebay\EbayListing.cs" />
+    <Compile Include="Ebay\ProductManagement\IEbayManagementRepository.cs" />
     <Compile Include="Ebay\IProductRepository.cs" />
     <Compile Include="Entities\Product.cs" />
-    <Compile Include="IDBContext.cs" />
+    <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MonlithDS.DAL\MonolithDS.DAL.csproj">
-      <Project>{E6A7FC4A-4AE2-418E-B785-DEE247B19D2B}</Project>
-      <Name>MonolithDS.DAL</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

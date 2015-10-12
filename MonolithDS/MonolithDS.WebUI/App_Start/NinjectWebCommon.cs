@@ -74,7 +74,7 @@ namespace MonolithDS.WebUI.App_Start
                 new Product() { Asin = "B00POZJ4U8", Brand = "Hasbro", Description = "This is the bomb 2"}
             });
             kernel.Bind<IProductRepository>().ToConstant(mockProducts.Object);
-            kernel.Bind<IEbayListingRepository>().ToConstant(EbayListing)();
+            //kernel.Bind<IEbayListingRepository>().ToConstant(EbayListing)();
             //kernel.Bind<EbayAPI>().ToConstant(bootstrapper);
         }        
     }

@@ -2,6 +2,7 @@ namespace MonlithDS.DAL.Models
 {
     using System.Data.Entity;
 
+    // ReSharper disable once InconsistentNaming
     public partial class DSEntities : DbContext
     {
         public DSEntities()

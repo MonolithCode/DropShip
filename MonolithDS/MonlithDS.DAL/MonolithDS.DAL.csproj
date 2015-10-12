@@ -50,45 +50,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exten\DSEntities.cs" />
     <Compile Include="Migrations\201510081933585_InitialCreate.cs" />
     <Compile Include="Migrations\201510081933585_InitialCreate.Designer.cs">
       <DependentUpon>201510081933585_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccessProfile.cs" />
-    <Compile Include="Models\AmazonAccount.cs" />
-    <Compile Include="Models\AmazonItem.cs" />
-    <Compile Include="Models\AmazonItemFeatures.cs" />
-    <Compile Include="Models\AmazonItemImages.cs" />
-    <Compile Include="Models\AmazonItemSearch.cs" />
-    <Compile Include="Models\Card.cs" />
-    <Compile Include="Models\DSEntities.cs" />
-    <Compile Include="Models\EbayAccount.cs" />
-    <Compile Include="Models\EbayAccountFeeDates.cs" />
-    <Compile Include="Models\EbayAPI.cs" />
-    <Compile Include="Models\EbayCategories.cs" />
-    <Compile Include="Models\EbayFeedback.cs" />
     <Compile Include="Models\EbayListing.cs" />
-    <Compile Include="Models\EbayListingCondition.cs" />
-    <Compile Include="Models\EbayListingDuration.cs" />
-    <Compile Include="Models\EbayListingErrors.cs" />
-    <Compile Include="Models\EbayListingFeatures.cs" />
-    <Compile Include="Models\EbayListingImages.cs" />
-    <Compile Include="Models\EbayOrderChanges.cs" />
-    <Compile Include="Models\EbayOrders.cs" />
-    <Compile Include="Models\EbayReturnPolicy.cs" />
-    <Compile Include="Models\EbayShipping.cs" />
-    <Compile Include="Models\EbayTaxes.cs" />
-    <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\EventLog.cs" />
-    <Compile Include="Models\FeeCalculationValues.cs" />
-    <Compile Include="Models\ListingFees.cs" />
-    <Compile Include="Models\PayPal.cs" />
-    <Compile Include="Models\PriceRanges.cs" />
-    <Compile Include="Models\ProductRestrictions.cs" />
-    <Compile Include="Models\ServiceSettings.cs" />
-    <Compile Include="Models\Template.cs" />
+    <Compile Include="Models\EF\AccessProfile.cs" />
+    <Compile Include="Models\EF\AmazonAccount.cs" />
+    <Compile Include="Models\EF\AmazonItem.cs" />
+    <Compile Include="Models\EF\AmazonItemFeatures.cs" />
+    <Compile Include="Models\EF\AmazonItemImages.cs" />
+    <Compile Include="Models\EF\AmazonItemSearch.cs" />
+    <Compile Include="Models\EF\Card.cs" />
+    <Compile Include="Models\EF\DSEntities.cs" />
+    <Compile Include="Models\EF\EbayAccount.cs" />
+    <Compile Include="Models\EF\EbayAccountFeeDates.cs" />
+    <Compile Include="Models\EF\EbayAPI.cs" />
+    <Compile Include="Models\EF\EbayCategories.cs" />
+    <Compile Include="Models\EF\EbayFeedback.cs" />
+    <Compile Include="Models\EF\EbayListing.cs" />
+    <Compile Include="Models\EF\EbayListingCondition.cs" />
+    <Compile Include="Models\EF\EbayListingDuration.cs" />
+    <Compile Include="Models\EF\EbayListingErrors.cs" />
+    <Compile Include="Models\EF\EbayListingFeatures.cs" />
+    <Compile Include="Models\EF\EbayListingImages.cs" />
+    <Compile Include="Models\EF\EbayOrderChanges.cs" />
+    <Compile Include="Models\EF\EbayOrders.cs" />
+    <Compile Include="Models\EF\EbayReturnPolicy.cs" />
+    <Compile Include="Models\EF\EbayShipping.cs" />
+    <Compile Include="Models\EF\EbayTaxes.cs" />
+    <Compile Include="Models\EF\Employee.cs" />
+    <Compile Include="Models\EF\EventLog.cs" />
+    <Compile Include="Models\EF\FeeCalculationValues.cs" />
+    <Compile Include="Models\EF\ListingFees.cs" />
+    <Compile Include="Models\EF\PayPal.cs" />
+    <Compile Include="Models\EF\PriceRanges.cs" />
+    <Compile Include="Models\EF\ProductRestrictions.cs" />
+    <Compile Include="Models\EF\ServiceSettings.cs" />
+    <Compile Include="Models\EF\Template.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\Ebay\EbayManagementRepositroy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -98,6 +102,12 @@
     <EmbeddedResource Include="Migrations\201510081933585_InitialCreate.resx">
       <DependentUpon>201510081933585_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MonolithDS.Domain\MonolithDS.Domain.csproj">
+      <Project>{30909cc9-3734-4013-9fbb-04df57317701}</Project>
+      <Name>MonolithDS.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
