@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MonolithDS.Domain.Entities.Product> 
+﻿@model IEnumerable<MonolithDS.Domain.Ebay.EbayListing> 
 
 @{
     ViewBag.Title = "List";
@@ -7,8 +7,7 @@
 @foreach (var product in Model)
 {
     <div>
-        <h3>@product.Asin</h3>
-        <h4>@product.Title</h4>
-        <p>@product.Description</p>
+        <h3>@product.EbayListingId</h3>
+        <h4>@product.Name</h4>
     </div>
 }

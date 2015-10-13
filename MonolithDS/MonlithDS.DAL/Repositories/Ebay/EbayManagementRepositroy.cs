@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using System.Runtime.Remoting.Contexts;
+﻿using System.Collections.Generic;
+using System.Linq;
 using MonolithDS.Domain;
 using MonolithDS.Domain.Ebay;
 
@@ -11,9 +11,16 @@ namespace MonlithDS.DAL.Repositories.Ebay
         {
         }
 
-        public System.Collections.Generic.List<EbayListing> GetEbayListings()
+        public List<EbayListing> GetEbayListings()
         {
-            return Context.EbayListing;
+            var data = (from e in Context.EbayListing
+                select new EbayListing
+                {
+                    Name = e.Title,
+                    EbayListingId = e.EbayListingID
+                }).ToList();
+
+            return data;
         }
     }
 }

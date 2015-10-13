@@ -6,7 +6,7 @@
         {
             return new MonolithDS.Domain.Ebay.EbayListing
             {
-                Name
+                EbayListingId = this.EbayListingID
             };
         }
     }
