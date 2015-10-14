@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using MonolithDS.Domain.Abstract;
 using MonolithDS.Domain.Ebay;
 
 namespace MonolithDS.WebUI.Controllers
@@ -7,14 +6,15 @@ namespace MonolithDS.WebUI.Controllers
     public class ProductController : Controller
     {
         private readonly IEbayManagementRepository _repository;
+        public int PageSize = 10;
         public ProductController(IEbayManagementRepository productRepository)
         {
             _repository = productRepository;
         }
         // GET: Product
-        public ViewResult List()
+        public ViewResult List(int page = 1)
         {
-            return View(_repository.GetEbayListings());
+            return View(_repository);
         }
     }
 }

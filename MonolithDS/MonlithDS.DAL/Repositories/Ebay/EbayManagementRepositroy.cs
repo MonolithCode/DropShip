@@ -7,8 +7,12 @@ namespace MonlithDS.DAL.Repositories.Ebay
 {
     public class EbayManagementRepositroy : BaseRepository, IEbayManagementRepository
     {
-        public EbayManagementRepositroy(IUnitOfWork context) : base(context)
+
+        public IEbayBaseRepository EbayCore { get; private set; }
+
+        public EbayManagementRepositroy(IUnitOfWork context, IEbayBaseRepository ebayCore) : base(context)
         {
+            EbayCore = ebayCore;
         }
 
         public List<EbayListing> GetEbayListings()

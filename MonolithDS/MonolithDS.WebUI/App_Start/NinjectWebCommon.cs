@@ -1,8 +1,11 @@
 using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
-using System.Data.Entity.Migrations;
+using EbayModule.eBaySvc;
+using EbayModule.enums;
 using MonlithDS.DAL.Models;
+using MonlithDS.DAL.Repositories.Ebay;
+using MonolithDS.Domain;
 using MonolithDS.Domain.Abstract;
+using MonolithDS.Domain.Ebay;
 using MonolithDS.Domain.Entities;
 using Moq;
 
@@ -20,8 +23,10 @@ namespace MonolithDS.WebUI.App_Start
     using Ninject.Web.Common;
 
     public static class NinjectWebCommon 
-    {
+    {   
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
+
+        public static IKernel kernel;
 
         /// <summary>
         /// Starts the application
@@ -47,7 +52,7 @@ namespace MonolithDS.WebUI.App_Start
         /// <returns>The created kernel.</returns>
         private static IKernel CreateKernel()
         {
-            var kernel = new StandardKernel();
+            kernel = new StandardKernel();
             try
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
@@ -76,9 +81,11 @@ namespace MonolithDS.WebUI.App_Start
                 new Product() { Asin = "B00POZJ4U8", Brand = "Hasbro", Description = "This is the bomb 2"}
             });
             kernel.Bind<IProductRepository>().ToConstant(mockProducts.Object);
-
-            //kernel.Bind<IEbayListingRepository>().ToConstant(EbayListing)();
-            //kernel.Bind<EbayAPI>().ToConstant(bootstrapper);
+            kernel.Bind<IEbayBaseRepository>().To<EbayBaseRepository>()
+                .WithConstructorArgument("mode", Modes.Live)
+                .WithConstructorArgument("siteCode", SiteCodeType.UK);
+            kernel.Bind<IUnitOfWork>().To<DSEntities>();
+            kernel.Bind<IEbayManagementRepository>().To<EbayManagementRepositroy>();
         }        
     }
 }

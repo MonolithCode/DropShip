@@ -43,6 +43,7 @@ namespace MonlithDS.DAL.Models
         public virtual DbSet<ProductRestrictions> ProductRestrictions { get; set; }
         public virtual DbSet<ServiceSettings> ServiceSettings { get; set; }
         public virtual DbSet<Template> Template { get; set; }
+        public 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

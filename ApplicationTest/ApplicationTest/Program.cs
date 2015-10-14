@@ -21,8 +21,7 @@ namespace ApplicationTest
             Application.SetCompatibleTextRenderingDefault(false);
             IKernel kernel = new StandardKernel(new Bindings());
             //kernel.Load(Assembly.GetExecutingAssembly());
-            var service = kernel.Get<IEbayService>();
-            Application.Run(new Form1(service));
+            Application.Run(kernel.Get<Form1>());
         }
     }
 }

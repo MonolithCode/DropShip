@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ebay\EbayListing.cs" />
+    <Compile Include="Ebay\IEbayBaseRepository.cs" />
     <Compile Include="Ebay\ProductManagement\IEbayManagementRepository.cs" />
     <Compile Include="Ebay\IProductRepository.cs" />
     <Compile Include="Entities\Product.cs" />
@@ -58,6 +59,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\EbayModule\EbayModule\EbayModule.csproj">
+      <Project>{579d4320-cf8e-49a6-b1ef-f44c180d7083}</Project>
+      <Name>EbayModule</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

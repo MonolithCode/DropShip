@@ -186,9 +186,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Ebay\EbayListingViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -261,6 +264,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\EbayModule\EbayModule\EbayModule.csproj">
+      <Project>{579d4320-cf8e-49a6-b1ef-f44c180d7083}</Project>
+      <Name>EbayModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MonlithDS.DAL\MonolithDS.DAL.csproj">
       <Project>{e6a7fc4a-4ae2-418e-b785-dee247b19d2b}</Project>
       <Name>MonolithDS.DAL</Name>
