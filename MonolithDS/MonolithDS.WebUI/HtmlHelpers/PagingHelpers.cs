@@ -7,7 +7,7 @@ namespace MonolithDS.WebUI.HtmlHelpers
 {
     public static class PagingHelpers
     {
-        public static MvcHtmlString PageLinks(HtmlHelper html, PagingInfo pageInfo, 
+        public static MvcHtmlString PageLinks(this HtmlHelper html, PagingInfo pageInfo, 
             Func<int,string> pageurl )
         {
             var results = new StringBuilder();

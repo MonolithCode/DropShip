@@ -1,6 +1,4 @@
-﻿@using EbayModule.eBaySvc
-@using EbayModule.enums
-@model MonolithDS.WebUI.Models.Ebay.EbayListingViewModel
+﻿@model MonolithDS.WebUI.Models.Ebay.EbayListingViewModel
 
 @{
     ViewBag.Title = "List";
@@ -17,3 +15,7 @@
         <h4>@product.Name</h4>
     </div>
 }
+
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("List",new { page = x}))
+</div>
