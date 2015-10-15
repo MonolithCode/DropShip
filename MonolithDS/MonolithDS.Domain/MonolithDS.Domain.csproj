@@ -50,10 +50,12 @@
   <ItemGroup>
     <Compile Include="Ebay\EbayListing.cs" />
     <Compile Include="Ebay\IEbayBaseRepository.cs" />
+    <Compile Include="Ebay\ProductManagement\EbayListingViewModel.cs" />
     <Compile Include="Ebay\ProductManagement\IEbayManagementRepository.cs" />
     <Compile Include="Ebay\IProductRepository.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="Paging\PagingInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

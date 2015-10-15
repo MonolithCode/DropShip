@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MonolithDS.Domain.Ebay.ProductManagement;
 
 namespace MonolithDS.Domain.Ebay
 {
@@ -6,5 +7,6 @@ namespace MonolithDS.Domain.Ebay
     {
         IEbayBaseRepository EbayCore { get; }
         List<EbayListing> GetEbayListings();
+        EbayListingViewModel CreatListingViewModel(int page);
     }
 }

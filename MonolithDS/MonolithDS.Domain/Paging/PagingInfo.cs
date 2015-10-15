@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MonolithDS.WebUI.Models
+namespace MonolithDS.Domain.Paging
 {
     public class PagingInfo
     {
@@ -10,7 +10,7 @@ namespace MonolithDS.WebUI.Models
 
         public int TotalPages
         {
-            get { return (int) Math.Ceiling((decimal) TotalItems/ItemsPerPage); }
+            get { return (int)Math.Ceiling((decimal)TotalItems / ItemsPerPage); }
         }
     }
 }

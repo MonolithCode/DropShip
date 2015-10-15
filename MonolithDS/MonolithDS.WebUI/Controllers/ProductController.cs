@@ -14,7 +14,7 @@ namespace MonolithDS.WebUI.Controllers
         // GET: Product
         public ViewResult List(int page = 1)
         {
-            return View(_repository);
+            return View(_repository.CreatListingViewModel(page));
         }
     }
 }

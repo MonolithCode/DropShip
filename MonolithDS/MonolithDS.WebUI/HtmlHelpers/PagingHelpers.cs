@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Web.Mvc;
-using MonolithDS.WebUI.Models;
+using MonolithDS.Domain.Paging;
 
 namespace MonolithDS.WebUI.HtmlHelpers
 {

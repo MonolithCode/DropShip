@@ -1,6 +1,4 @@
-﻿using EbayModule.eBaySvc;
-using EbayModule.enums;
-using EbayModule.view;
+﻿using EbayModule.view;
 
 namespace MonolithDS.Domain.Ebay
 {

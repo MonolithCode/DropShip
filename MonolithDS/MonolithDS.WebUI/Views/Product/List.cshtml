@@ -1,4 +1,4 @@
-﻿@model MonolithDS.WebUI.Models.Ebay.EbayListingViewModel
+﻿@model MonolithDS.Domain.Ebay.ProductManagement.EbayListingViewModel
 
 @{
     ViewBag.Title = "List";
@@ -11,11 +11,11 @@
 @foreach (var product in Model.EbayListings)
 {
     <div>
-        <h3>@product</h3>
+        <h3>@product.EbayListingId</h3>
         <h4>@product.Name</h4>
     </div>
 }
 
-<div class="btn-group pull-right">
+<div>
     @Html.PageLinks(Model.PageInfo, x => Url.Action("List",new { page = x}))
 </div>
