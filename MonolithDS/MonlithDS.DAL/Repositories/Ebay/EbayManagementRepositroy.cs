@@ -17,7 +17,7 @@ namespace MonlithDS.DAL.Repositories.Ebay
             EbayCore = ebayCore;
         }
 
-        public List<EbayListing> GetEbayListings()
+        public IEnumerable<EbayListing> GetEbayListings()
         {
             var data = (from e in Context.EbayListing
                 select new EbayListing
