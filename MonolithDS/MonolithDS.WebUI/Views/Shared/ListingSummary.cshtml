@@ -1,0 +1,15 @@
+﻿@model MonolithDS.Domain.Ebay.EbayListing
+
+<div class="well">
+    <h3>@Model.EbayListingId</h3>
+    <span class="pull-right label label-primary">@Model.Price.ToString("c")</span>
+    <span class="lead">@Model.Name</span>
+    @using (Html.BeginForm("AddToCart", "Cart"))
+    {
+        <div class="pull-right">
+            @Html.HiddenFor(x => x.EbayListingId)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" class="btn btn-success" value="Add to cart" />
+        </div>
+    }
+</div>

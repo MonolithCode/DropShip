@@ -12,9 +12,9 @@ namespace MonolithDS.WebUI.Controllers
             _repository = productRepository;
         }
         // GET: Product
-        public ViewResult List(int page = 1)
+        public ViewResult List(string pricerange, int page = 1)
         {
-            return View(_repository.CreatListingViewModel(page));
+            return View(_repository.CreatListingViewModel(pricerange, page));
         }
     }
 }

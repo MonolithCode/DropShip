@@ -1,12 +1,14 @@
 ﻿namespace MonlithDS.DAL.Models
 {
-    public partial class EbayListing
+    public sealed partial class EbayListing
     {
         public MonolithDS.Domain.Ebay.EbayListing ToDomainObject()
         {
             return new MonolithDS.Domain.Ebay.EbayListing
             {
-                EbayListingId = this.EbayListingID
+                EbayListingId = this.EbayListingID,
+                Name =  this.Title,
+                Price = this.Price
             };
         }
     }

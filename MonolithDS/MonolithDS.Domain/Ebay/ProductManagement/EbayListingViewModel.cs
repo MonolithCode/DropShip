@@ -7,5 +7,6 @@ namespace MonolithDS.Domain.Ebay.ProductManagement
     {
         public IEnumerable<EbayListing> EbayListings { get; set; }
         public PagingInfo PageInfo { get; set; }
+        public string PriceRange { get; set; }
     }
 }

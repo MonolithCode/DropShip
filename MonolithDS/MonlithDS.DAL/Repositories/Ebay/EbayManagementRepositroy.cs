@@ -20,11 +20,9 @@ namespace MonlithDS.DAL.Repositories.Ebay
         public IEnumerable<EbayListing> GetEbayListings()
         {
             var data = (from e in Context.EbayListing
-                select new EbayListing
-                {
-                    Name = e.Title,
-                    EbayListingId = e.EbayListingID
-                }).ToList();
+                        select e)
+                        .AsEnumerable()
+                        .Select(x=>x.ToDomainObject());
 
             return data;
         }
@@ -32,11 +30,14 @@ namespace MonlithDS.DAL.Repositories.Ebay
         /// <summary>
         /// Creates the model
         /// </summary>
+        /// <param name="pricerange"></param>
         /// <param name="page">Page of listings to view</param>
         /// <returns></returns>
-        public EbayListingViewModel CreatListingViewModel(int page = 1)
+        public EbayListingViewModel CreatListingViewModel(string pricerange, int page)
         {
-            var ebayListings = GetEbayListings().OrderBy(x => x.Name);
+            var ebayListings = GetEbayListings().Where(x => pricerange == null || 
+                x.Price > (pricerange == "High" ? 15.00m : 0.00m) ||
+                x.Price < (pricerange == "Low" ? 15.00m : 0.00m)).OrderBy(x => x.Price);
             return new EbayListingViewModel
             {
                 EbayListings = ebayListings.Skip((page - 1)*5).Take(5),
@@ -45,7 +46,7 @@ namespace MonlithDS.DAL.Repositories.Ebay
                     CurrentPage = page,
                     ItemsPerPage = 5,
                     TotalItems = ebayListings.Count()
-                }
+                }, PriceRange = pricerange
             };
         }
     }

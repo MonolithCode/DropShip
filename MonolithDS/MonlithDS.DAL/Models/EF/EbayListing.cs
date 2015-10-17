@@ -4,10 +4,9 @@ namespace MonlithDS.DAL.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("EbayListing")]
-    public partial class EbayListing
+    public sealed partial class EbayListing
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public EbayListing()
@@ -16,6 +15,10 @@ namespace MonlithDS.DAL.Models
             EbayListingFeatures = new HashSet<EbayListingFeatures>();
             EbayListingImages = new HashSet<EbayListingImages>();
             ListingFees = new HashSet<ListingFees>();
+            Price = 0.00m;
+            CreatedDate = DateTime.Now;
+            UpdatedDate = DateTime.Now;
+            EbayListingID = new Guid();
         }
 
         public Guid EbayListingID { get; set; }
@@ -36,7 +39,7 @@ namespace MonlithDS.DAL.Models
         public DateTime CreatedDate { get; set; }
 
         [Column(TypeName = "datetime2")]
-        public DateTime? UpdatedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }
 
         public bool Sold { get; set; }
 
@@ -45,9 +48,9 @@ namespace MonlithDS.DAL.Models
 
         public bool Retracted { get; set; }
 
-        public decimal? Price { get; set; }
+        public decimal Price { get; set; }
 
-        public decimal? Postage { get; set; }
+        public decimal Postage { get; set; }
 
         [StringLength(5)]
         public string Currency { get; set; }
@@ -111,36 +114,36 @@ namespace MonlithDS.DAL.Models
 
         public bool RejectNewPrice { get; set; }
 
-        public virtual AmazonItem AmazonItem { get; set; }
+        public AmazonItem AmazonItem { get; set; }
 
-        public virtual EbayAccount EbayAccount { get; set; }
+        public EbayAccount EbayAccount { get; set; }
 
-        public virtual EbayCategories EbayCategories { get; set; }
+        public EbayCategories EbayCategories { get; set; }
 
-        public virtual EbayFeedback EbayFeedback { get; set; }
+        public EbayFeedback EbayFeedback { get; set; }
 
-        public virtual EbayListingCondition EbayListingCondition { get; set; }
+        public EbayListingCondition EbayListingCondition { get; set; }
 
-        public virtual EbayListingDuration EbayListingDuration { get; set; }
+        public EbayListingDuration EbayListingDuration { get; set; }
 
-        public virtual EbayReturnPolicy EbayReturnPolicy { get; set; }
+        public EbayReturnPolicy EbayReturnPolicy { get; set; }
 
-        public virtual EbayShipping EbayShipping { get; set; }
+        public EbayShipping EbayShipping { get; set; }
 
-        public virtual EbayTaxes EbayTaxes { get; set; }
+        public EbayTaxes EbayTaxes { get; set; }
 
-        public virtual Employee Employee { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EbayListingErrors> EbayListingErrors { get; set; }
+        public Employee Employee { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EbayListingFeatures> EbayListingFeatures { get; set; }
+        public ICollection<EbayListingErrors> EbayListingErrors { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EbayListingImages> EbayListingImages { get; set; }
+        public ICollection<EbayListingFeatures> EbayListingFeatures { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ListingFees> ListingFees { get; set; }
+        public ICollection<EbayListingImages> EbayListingImages { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public ICollection<ListingFees> ListingFees { get; set; }
     }
 }

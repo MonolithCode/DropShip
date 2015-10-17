@@ -7,6 +7,6 @@ namespace MonolithDS.Domain.Ebay
     {
         IEbayBaseRepository EbayCore { get; }
         IEnumerable<EbayListing> GetEbayListings();
-        EbayListingViewModel CreatListingViewModel(int page);
+        EbayListingViewModel CreatListingViewModel(string pricerange, int page);
     }
 }
