@@ -11,7 +11,7 @@ namespace MonolithDS.WebUI.HtmlHelpers
             Func<int,string> pageurl )
         {
             var results = new StringBuilder();
-            for (var i = 0; i < pageInfo.TotalPages; i++)
+            for (var i = 1; i <= pageInfo.TotalPages; i++)
             {
                 var tag = new TagBuilder("a");
                 tag.MergeAttribute("href",pageurl(i));

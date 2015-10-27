@@ -6,7 +6,7 @@ namespace MonolithDS.WebUI.Controllers
 {
     public class NavController : Controller
     {
-        private IEbayManagementRepository _repository;
+        private readonly IEbayManagementRepository _repository;
         public NavController(IEbayManagementRepository repository)
         {
             _repository = repository;

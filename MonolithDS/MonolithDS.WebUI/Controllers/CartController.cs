@@ -15,42 +15,34 @@ namespace MonolithDS.WebUI.Controllers
             _repository = productRepository;
         }
 
-        public ViewResult Index(string returnUrl)
+        public ViewResult Index(Cart cart, string returnUrl)
         {
             return View(
-                new CartIndexViewModel { Cart = GetCart(), ReturnUrl = returnUrl });
+                new CartIndexViewModel { Cart = cart, ReturnUrl = returnUrl });
         }
 
-        public RedirectToRouteResult AddToCart(string EbayListingId, string returnUrl)
+        public RedirectToRouteResult AddToCart(Cart cart, string EbayListingId, string returnUrl)
         {
             Guid guidID = Guid.Parse(EbayListingId);
             EbayListing listing = _repository.GetEbayListings().FirstOrDefault(x => x.EbayListingId == guidID);
             if (listing != null)
             {
-                GetCart().AddItem(listing, 1);
+                cart.AddItem(listing, 1);
             }
 
             return RedirectToAction("Index", new { returnUrl });
         }
 
-        public RedirectToRouteResult RemoveFromCart(Cart cart, Guid productId, string returnUrl)
+        public RedirectToRouteResult RemoveFromCart(Cart cart, string EbayListingId, string returnUrl)
         {
-            EbayListing listing = _repository.GetEbayListings().FirstOrDefault(x => x.EbayListingId == productId);
+            Guid guidID = Guid.Parse(EbayListingId);
+            EbayListing listing = _repository.GetEbayListings().FirstOrDefault(x => x.EbayListingId == guidID);
             if (listing != null)
             {
                 cart.RemoveLine(listing);
             }
 
             return RedirectToAction("Index", new { returnUrl });
-        }
-
-        private Cart GetCart()
-        {
-            if (Session["Cart"] == null)
-            {
-                Session["Cart"] = new Cart();
-            }
-            return (Cart) Session["Cart"];
         }
     }
 }

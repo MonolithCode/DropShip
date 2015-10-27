@@ -15,7 +15,7 @@ namespace MonolithDS.Domain.Shopping.Cart
 
         public void AddItem(EbayListing item, int quantity)
         {
-            var listing = _lineCollection.FirstOrDefault(x => x.EbayListing == item);
+            var listing = _lineCollection.FirstOrDefault(x => x.EbayListing.EbayListingId == item.EbayListingId);
             if (listing == null)
             {
                 _lineCollection.Add(new CartLine { EbayListing = item, Quantity = quantity });
