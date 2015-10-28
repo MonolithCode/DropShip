@@ -60,6 +60,7 @@
     <Compile Include="Shopping\Cart\Cart.cs" />
     <Compile Include="Shopping\Cart\CartIndexViewModel.cs" />
     <Compile Include="Shopping\Cart\CartLine.cs" />
+    <Compile Include="Shopping\Shipping\ShippingDetails.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

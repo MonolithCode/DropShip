@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using MonolithDS.Domain.Ebay;
 using MonolithDS.Domain.Shopping.Cart;
+using MonolithDS.Domain.Shopping.Shipping;
 
 namespace MonolithDS.WebUI.Controllers
 {
@@ -21,6 +22,11 @@ namespace MonolithDS.WebUI.Controllers
                 new CartIndexViewModel { Cart = cart, ReturnUrl = returnUrl });
         }
 
+        public PartialViewResult Summary(Cart cart)
+        {
+            return PartialView(cart);
+        }
+
         public RedirectToRouteResult AddToCart(Cart cart, string EbayListingId, string returnUrl)
         {
             Guid guidID = Guid.Parse(EbayListingId);
@@ -31,6 +37,11 @@ namespace MonolithDS.WebUI.Controllers
             }
 
             return RedirectToAction("Index", new { returnUrl });
+        }
+
+        public ViewResult Checkout()
+        {
+            return View(new ShippingDetails());
         }
 
         public RedirectToRouteResult RemoveFromCart(Cart cart, string EbayListingId, string returnUrl)
