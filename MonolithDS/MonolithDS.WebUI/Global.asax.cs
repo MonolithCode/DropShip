@@ -1,9 +1,7 @@
-﻿using System.Data.Entity;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using MonlithDS.DAL.Models;
 using MonolithDS.Domain.Shopping.Cart;
 using MonolithDS.WebUI.Binders.Shopping;
 
@@ -18,7 +16,7 @@ namespace MonolithDS.WebUI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DSEntities, MonlithDS.DAL.Migrations.Configuration>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DSEntities, MonlithDS.DAL.Migrations.Configuration>());
             ModelBinders.Binders.Add(typeof(Cart), new CartModelBinder());
         }
     }

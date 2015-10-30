@@ -278,10 +278,6 @@
       <Project>{579d4320-cf8e-49a6-b1ef-f44c180d7083}</Project>
       <Name>EbayModule</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MonlithDS.DAL\MonolithDS.DAL.csproj">
-      <Project>{e6a7fc4a-4ae2-418e-b785-dee247b19d2b}</Project>
-      <Name>MonolithDS.DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MonolithDS.DependancyResolution\MonolithDS.DependancyResolution.csproj">
       <Project>{ee2319b7-d8c9-481b-ad69-43b146783c05}</Project>
       <Name>MonolithDS.DependancyResolution</Name>

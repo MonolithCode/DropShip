@@ -14,6 +14,8 @@ namespace MonolithDS.DependancyResolution
             Bind<IEbayBaseRepository>().To<EbayBaseRepository>()
                 .WithConstructorArgument("mode", Modes.Live)
                 .WithConstructorArgument("siteCode", SiteCodeType.UK);
+
+            
         }
     }
 }
