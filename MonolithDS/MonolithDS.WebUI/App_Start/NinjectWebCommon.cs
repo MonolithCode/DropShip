@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using EbayModule.eBaySvc;
 using EbayModule.enums;
+using MonlithDS.DAL;
 using MonlithDS.DAL.Models;
 using MonlithDS.DAL.Repositories.Ebay;
 using MonolithDS.Domain;
@@ -8,6 +9,7 @@ using MonolithDS.Domain.Abstract;
 using MonolithDS.Domain.Ebay;
 using MonolithDS.Domain.Entities;
 using Moq;
+using EbayModule = MonolithDS.DependancyResolution.EbayModule;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(MonolithDS.WebUI.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(MonolithDS.WebUI.App_Start.NinjectWebCommon), "Stop")]
@@ -52,7 +54,8 @@ namespace MonolithDS.WebUI.App_Start
         /// <returns>The created kernel.</returns>
         private static IKernel CreateKernel()
         {
-            kernel = new StandardKernel();
+            kernel = new StandardKernel(
+                new DependancyResolution.EbayModule());
             try
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
@@ -81,11 +84,11 @@ namespace MonolithDS.WebUI.App_Start
                 new Product() { Asin = "B00POZJ4U8", Brand = "Hasbro", Description = "This is the bomb 2"}
             });
             kernel.Bind<IProductRepository>().ToConstant(mockProducts.Object);
-            kernel.Bind<IEbayBaseRepository>().To<EbayBaseRepository>()
-                .WithConstructorArgument("mode", Modes.Live)
-                .WithConstructorArgument("siteCode", SiteCodeType.UK);
+            //kernel.Bind<IEbayBaseRepository>().To<EbayBaseRepository>()
+                //.WithConstructorArgument("mode", Modes.Live)
+                //.WithConstructorArgument("siteCode", SiteCodeType.UK);
             kernel.Bind<IUnitOfWork>().To<DSEntities>();
-            kernel.Bind<IEbayManagementRepository>().To<EbayManagementRepositroy>();
+            //kernel.Bind<IEbayManagementRepository>().To<EbayManagementRepositroy>();
         }        
     }
 }

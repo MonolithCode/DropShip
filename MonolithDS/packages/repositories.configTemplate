@@ -2,6 +2,7 @@
 <repositories>
   <repository path="..\..\EbayModule\EbayModule\packages.config" />
   <repository path="..\MonlithDS.DAL\packages.config" />
+  <repository path="..\MonolithDS.DependancyResolution\packages.config" />
   <repository path="..\MonolithDS.Domain\packages.config" />
   <repository path="..\MonolithDS.WebUI.Tests\packages.config" />
   <repository path="..\MonolithDS.WebUI\packages.config" />
