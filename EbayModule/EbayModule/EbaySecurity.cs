@@ -1,20 +1,27 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using EbayModule.eBaySvc;
 using EbayModule.enums;
+using EbayModule.Error;
 using EbayModule.view;
 
 namespace EbayModule
 {
     public class EbaySecurity : BaseProcedures, IEbaySecurity
     {
+        private readonly IEbayErrorLogger _logger;
 
-        public EbaySecurity(IEbayProperties properties) : base (properties)
+        public EbaySecurity(IEbayProperties properties, IEbayErrorLogger logger) : base (properties)
         {
-            if (properties == null)
-            {
+            if (properties == null){
                 throw new NotImplementedException("IEbayProperties");
             }
+            if (properties == null){
+                throw new NotImplementedException("IEbayErrorLogger");
+            }
+
+            _logger = logger;
         }
 
         /// <summary>
@@ -29,19 +36,17 @@ namespace EbayModule
             {
                 RequesterCredentials = Properties.EbayCredentials
             };
-            //Required if the secret key is not provided
-            //r.RequesterCredentials.Credentials.Username = "";
 
             var rt = new FetchTokenRequestType { Version = Properties.ServiceVersion, SecretID = secretKey.ToString() };
 
             var res = service.FetchToken(ref r.RequesterCredentials, rt);
-            if (res.Errors == null) return res.Ack != AckCodeType.Success ? "" : res.Any.First().InnerText;
+            if (res.Errors == null) return res.Ack != AckCodeType.Success ? string.Empty : res.Any.First().InnerText;
             foreach (var e in res.Errors)
             {
-                //Log error
+                _logger.WriteToLog(e, EventLogEntryType.Error);
             }
 
-            return res.Ack != AckCodeType.Success ? "" : res.Any.First().InnerText;
+            return res.Ack != AckCodeType.Success ? string.Empty : res.Any.First().InnerText;
         }
 
         /// <summary>

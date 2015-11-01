@@ -45,7 +45,8 @@ namespace MonolithDS.WebUI.App_Start
         {
             kernel = new StandardKernel(
                 new DependancyResolution.EbayModule(),
-                new Data());
+                new Data(),
+                new GenericFunctions());
             try
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);

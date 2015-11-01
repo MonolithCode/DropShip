@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
+using System.Diagnostics;
 using System.IO;
 using EbayModule.eBaySvc;
 using EbayModule.enums;
@@ -8,15 +8,19 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Xml;
+using EbayModule.Error;
 
 namespace EbayModule
 {
     public class EbayImageManagement : BaseProcedures, IEbayImageManagement
     {
         private readonly ISiteUtility _utility;
-        public EbayImageManagement(IEbayProperties properties) : base(properties)
+        private readonly IEbayErrorLogger _logger;
+
+        public EbayImageManagement(IEbayProperties properties, IEbayErrorLogger logger) : base(properties)
         {
             _utility = new SiteUtility();
+            _logger = logger;
         }
 
         public string[] UploadSelfHostedImages(PhotoDisplayCodeType photoDisplay, string[] pictureFileList)
@@ -44,12 +48,8 @@ namespace EbayModule
                 {
                     foreach (var e in apicall.Errors.ToArray())
                     {
-                        //Log errors
+                        _logger.WriteToLog(e, EventLogEntryType.Error);
                     }
-                }
-                if ((apicall.Ack == AckCodeType.Success || apicall.Ack == AckCodeType.Warning))
-                {
-                    //Log Success
                 }
             }
 
@@ -99,13 +99,15 @@ namespace EbayModule
                 uploadSiteHostedPicturesResponseType1 = (UploadSiteHostedPicturesResponseType)_utility.DeserializeFromXml(outerXml, typeof(UploadSiteHostedPicturesResponseType));
                 if (uploadSiteHostedPicturesResponseType1 != null && uploadSiteHostedPicturesResponseType1.Errors != null && uploadSiteHostedPicturesResponseType1.Errors.Length > 0)
                 {
-                    //Error
+                    foreach (var e in uploadSiteHostedPicturesResponseType1.Errors)
+                    {
+                        _logger.WriteToLog(e, EventLogEntryType.Error);
+                    }
                 }
                 uploadSiteHostedPicturesResponseType = uploadSiteHostedPicturesResponseType1;
             }
-            catch (Exception exception1)
+            catch
             {
-                //error
                 return uploadSiteHostedPicturesResponseType1;
             }
             return uploadSiteHostedPicturesResponseType;

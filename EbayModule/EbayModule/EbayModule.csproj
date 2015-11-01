@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseProcedures.cs" />
+    <Compile Include="Error\IEbayErrorLogger.cs" />
     <Compile Include="Extensions\EbayListingUpdateRequest.cs" />
     <Compile Include="EbayProductManagement.cs" />
     <Compile Include="EbayService.cs" />

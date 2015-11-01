@@ -1,23 +1,33 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using EbayModule.eBaySvc;
 using EbayModule.enums;
+using EbayModule.Error;
 using EbayModule.Extensions;
 using EbayModule.view;
-
 namespace EbayModule
 {
     public class EbayProductManagement : BaseProcedures, IEbayProductManagement
     {
         public IEbayImageManagement ImageManager { get; private set; }
+        private readonly IEbayErrorLogger _logger;
 
-        public EbayProductManagement(IEbayProperties properties) : base(properties)
+        public EbayProductManagement(IEbayProperties properties,IEbayImageManagement itemManagement, IEbayErrorLogger logger)
+            : base(properties)
         {
-            if (properties == null)
-            {
+            if (properties == null){
                 throw new NotImplementedException("IEbayProperties");
             }
-            ImageManager = new EbayImageManagement(properties);
+            if (itemManagement == null){
+                throw new NotImplementedException("IEbayImageManagement");
+            }
+            if (logger == null){
+                throw new NotImplementedException("ILogger");
+            }
+
+            ImageManager = itemManagement;
+            _logger = logger;
         }
 
         /// <summary>
@@ -32,12 +42,11 @@ namespace EbayModule
             SetupRequestType<CompleteSaleRequestType>(req);
             var credentials = Properties.EbayCredentials;
             var apicall = service.CompleteSale(ref credentials, req);
-            if (apicall.Errors != null)
+            if (apicall.Errors == null)
+                return (apicall.Ack == AckCodeType.Success || apicall.Ack == AckCodeType.Warning);
+            foreach (var e in apicall.Errors.ToArray())
             {
-                foreach (var e in apicall.Errors.ToArray())
-                {
-                    //Log errors
-                }
+                _logger.WriteToLog(e, EventLogEntryType.Error);
             }
             return (apicall.Ack == AckCodeType.Success || apicall.Ack == AckCodeType.Warning);
         }

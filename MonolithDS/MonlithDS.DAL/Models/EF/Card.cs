@@ -4,7 +4,6 @@ namespace MonlithDS.DAL.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("Card")]
     public partial class Card

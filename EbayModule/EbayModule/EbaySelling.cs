@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using EbayModule.eBaySvc;
 using EbayModule.enums;
+using EbayModule.Error;
 using EbayModule.view;
 
 namespace EbayModule
@@ -9,10 +11,22 @@ namespace EbayModule
     public class EbaySelling : BaseProcedures, IEbaySelling
     {
         public IEbayProductManagement ProductManagement { get; private set; }
+        private readonly IEbayErrorLogger _logger;
 
-        public EbaySelling(IEbayProperties properties, IEbayProductManagement productManagement) : base (properties)
+        public EbaySelling(IEbayProperties properties, IEbayProductManagement productManagement, IEbayErrorLogger logger) : base (properties)
         {
+            if (properties == null){
+                throw new NotImplementedException("IEbayProperties");
+            }
+            if (productManagement == null){
+                throw new NotImplementedException("IEbayProductManagement");
+            }
+            if (logger == null){
+                throw new NotImplementedException("IEbayErrorLogger");
+            }
+
             ProductManagement = productManagement;
+            _logger = logger;
         }
 
         /// <summary>
@@ -34,12 +48,11 @@ namespace EbayModule
             {
                 foreach (var e in apicall.Errors.ToArray())
                 {
-                    //Log errors
+                    _logger.WriteToLog(e, EventLogEntryType.Error);
                 }
             }
             if ((apicall.Ack == AckCodeType.Success || apicall.Ack == AckCodeType.Warning))
             {
-                //Log Success
                 return apicall;
             }
             return null;
@@ -79,12 +92,11 @@ namespace EbayModule
             {
                 foreach (var e in apicall.Errors.ToArray())
                 {
-                    //Log errors
+                    _logger.WriteToLog(e, EventLogEntryType.Error);
                 }
             }
             if ((apicall.Ack == AckCodeType.Success || apicall.Ack == AckCodeType.Warning))
             {
-                //Log Success
                 return apicall;
             }
             return null;
@@ -122,12 +134,11 @@ namespace EbayModule
             {
                 foreach (var e in apicall.Errors.ToArray())
                 {
-                    //Log errors
+                    _logger.WriteToLog(e, EventLogEntryType.Error);
                 }
             }
             if ((apicall.Ack == AckCodeType.Success || apicall.Ack == AckCodeType.Warning))
             {
-                //Log Success
                 return apicall;
             }
             return null;

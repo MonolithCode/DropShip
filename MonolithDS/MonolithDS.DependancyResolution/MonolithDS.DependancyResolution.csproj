@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Data.cs" />
     <Compile Include="EbayModule.cs" />
+    <Compile Include="GenericFunctions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

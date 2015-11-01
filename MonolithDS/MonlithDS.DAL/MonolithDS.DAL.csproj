@@ -54,7 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bindings.cs" />
     <Compile Include="Exten\DSEntities.cs" />
     <Compile Include="Migrations\201510081933585_InitialCreate.cs" />
     <Compile Include="Migrations\201510081933585_InitialCreate.Designer.cs">

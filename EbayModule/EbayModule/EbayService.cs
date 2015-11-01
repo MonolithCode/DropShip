@@ -49,7 +49,6 @@ namespace EbayModule
 
             var res = service.GetCategories(ref req.RequesterCredentials, reqType);
             return res;
-            //return (res.Ack == AckCodeType.Success || res.Ack == AckCodeType.Warning);
         }
     }
 }
