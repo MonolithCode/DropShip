@@ -1,4 +1,5 @@
-﻿using Ninject.Modules;
+﻿using MonolithDS.Image;
+using Ninject.Modules;
 
 namespace MonolithDS.DependancyResolution
 {
@@ -6,7 +7,7 @@ namespace MonolithDS.DependancyResolution
     {
         public override void Load()
         {
-            
+            Bind<IImageHelper>().To<ImageHelper>();
         }
     }
 }
