@@ -1,4 +1,6 @@
 ﻿
+using System.Drawing;
+
 namespace MonolithDS.Image
 {
     public class ImageHistroy
@@ -8,5 +10,6 @@ namespace MonolithDS.Image
         public string NewLocation { get; set; }
         public decimal OldSize { get; set; }
         public decimal NewSize { get; set; }
+        public Bitmap Image { get; set; }
     }
 }

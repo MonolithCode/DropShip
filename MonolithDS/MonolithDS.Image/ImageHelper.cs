@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using ImageResizer;
@@ -57,6 +58,13 @@ namespace MonolithDS.Image
             return ih;
         }
 
+        /// <summary>
+        /// Resize the image
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="maxWidth"></param>
+        /// <param name="maxHeight"></param>
+        /// <returns></returns>
         public ImageHistroy AdjustImage(string file, int maxWidth, int maxHeight)
         {
             if (SaveOption == SaveMode.SaveAs && string.IsNullOrEmpty(AltSaveLocation))
@@ -71,11 +79,13 @@ namespace MonolithDS.Image
                     ImageBuilder.Current.Build(file, file, new ResizeSettings(maxWidth, maxHeight, Mode, SaveExtension));
                     image.NewSize = new FileInfo(file).Length;
                     image.NewLocation = image.Location;
+                    image.Image = new Bitmap(file);
                     break;
                 case SaveMode.SaveAs:
                     ImageBuilder.Current.Build(file, Path.Combine(AltSaveLocation, image.ImageName), new ResizeSettings(maxWidth, maxHeight, Mode, SaveExtension));
                     image.NewSize = new FileInfo(Path.Combine(AltSaveLocation, image.ImageName)).Length;
                     image.NewLocation = Path.Combine(AltSaveLocation, image.ImageName);
+                    image.Image = new Bitmap(Path.Combine(AltSaveLocation, image.ImageName));
                     break;
             }
 

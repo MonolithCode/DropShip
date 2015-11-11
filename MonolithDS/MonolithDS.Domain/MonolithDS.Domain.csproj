@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ebay\EbayListing.cs" />
+    <Compile Include="Ebay\Home\HomeViewModel.cs" />
     <Compile Include="Ebay\IEbayBaseRepository.cs" />
     <Compile Include="Ebay\ProductManagement\EbayListingViewModel.cs" />
     <Compile Include="Ebay\ProductManagement\IEbayManagementRepository.cs" />
@@ -74,6 +75,7 @@
       <Name>EbayModule</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
