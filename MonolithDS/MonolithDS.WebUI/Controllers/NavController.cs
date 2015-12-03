@@ -15,7 +15,7 @@ namespace MonolithDS.WebUI.Controllers
         public PartialViewResult Menu(string category = null)
         {
             ViewBag.SelectedCategory = category;
-            var categories = _repository.GetEbayListings().Select(x => x.Price).Distinct();
+            var categories = _repository.GetEbayListings().Select(x => x.Name).Distinct();
             return PartialView(categories);
         }
     }

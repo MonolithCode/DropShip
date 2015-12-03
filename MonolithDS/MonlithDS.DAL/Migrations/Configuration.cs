@@ -1,18 +1,15 @@
 namespace MonlithDS.DAL.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    public class Configuration : DbMigrationsConfiguration<MonlithDS.DAL.Models.DSEntities>
+    public class Configuration : DbMigrationsConfiguration<Models.DSEntities>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(MonlithDS.DAL.Models.DSEntities context)
+        protected override void Seed(Models.DSEntities context)
         {
             //  This method will be called after migrating to the latest version.
 
