@@ -68,6 +68,7 @@
       <DependentUpon>201512021256093_MenuItems.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\EbayAPI.cs" />
     <Compile Include="Models\EbayListing.cs" />
     <Compile Include="Models\EF\AccessProfile.cs" />
     <Compile Include="Models\EF\AmazonAccount.cs" />
