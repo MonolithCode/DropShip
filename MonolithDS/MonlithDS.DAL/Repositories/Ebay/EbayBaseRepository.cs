@@ -22,9 +22,8 @@ namespace MonlithDS.DAL.Repositories.Ebay
 
         public IEbayProperties EbayProperties()
         {
-            return (from p in Context.EbayAPI.ToList()
-                select new EbayProperties(p.AppID, p.DevID, p.AuthCert, p.Token, p.Runame, p.SandBoxToken,
-                    _mode, _siteCode)).FirstOrDefault();
+            return Context.EbayAPI.First().ToDomainObject(_mode, _siteCode);
+
         }
     }
 }
