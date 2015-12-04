@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MonlithDS.DAL.Models.EF
+namespace MonlithDS.DAL.Models
 {
     [Table("MenuItems")]
     public partial class MenuItem

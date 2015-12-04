@@ -43,10 +43,10 @@ namespace MonlithDS.DAL.Models
         public virtual DbSet<PayPal> PayPal { get; set; }
         public virtual DbSet<PriceRanges> PriceRanges { get; set; }
         public virtual DbSet<ProductRestrictions> ProductRestrictions { get; set; }
-        public virtual DbSet<MenuItem> MenuItem { get; set; }
+        public virtual DbSet<MenuItem> MenuItems { get; set; }
         public virtual DbSet<ServiceSettings> ServiceSettings { get; set; }
         public virtual DbSet<Template> Template { get; set; }
-
+            
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AmazonItem>()

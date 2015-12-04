@@ -63,7 +63,12 @@
     <Compile Include="Migrations\201510162033533_EbayListing_Defaults.Designer.cs">
       <DependentUpon>201510162033533_EbayListing_Defaults.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512021256093_MenuItems.cs" />
+    <Compile Include="Migrations\201512021256093_MenuItems.Designer.cs">
+      <DependentUpon>201512021256093_MenuItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\EbayAPI.cs" />
     <Compile Include="Models\EbayListing.cs" />
     <Compile Include="Models\EF\AccessProfile.cs" />
     <Compile Include="Models\EF\AmazonAccount.cs" />
@@ -93,6 +98,7 @@
     <Compile Include="Models\EF\EventLog.cs" />
     <Compile Include="Models\EF\FeeCalculationValues.cs" />
     <Compile Include="Models\EF\ListingFees.cs" />
+    <Compile Include="Models\EF\MenuItem.cs" />
     <Compile Include="Models\EF\Navigation.cs" />
     <Compile Include="Models\EF\PayPal.cs" />
     <Compile Include="Models\EF\PriceRanges.cs" />
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510162033533_EbayListing_Defaults.resx">
       <DependentUpon>201510162033533_EbayListing_Defaults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512021256093_MenuItems.resx">
+      <DependentUpon>201512021256093_MenuItems.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
