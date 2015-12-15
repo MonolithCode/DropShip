@@ -1,4 +1,5 @@
-﻿using EbayModule.eBaySvc;
+﻿using System;
+using EbayModule.eBaySvc;
 using EbayModule.enums;
 using EbayModule.view;
 
@@ -9,6 +10,7 @@ namespace EbayModule
         internal IEbayProperties Properties { get; private set; }
         public BaseProcedures(IEbayProperties baseProperties)
         {
+            if (baseProperties == null) { throw new NotImplementedException("IEbayProperties"); }
             Properties = baseProperties;
         }
 

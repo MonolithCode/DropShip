@@ -1,7 +1,9 @@
 ﻿using EbayModule;
 using EbayModule.eBaySvc;
 using EbayModule.enums;
+using EbayModule.Error;
 using EbayModule.view;
+using MonolithDS.Logger;
 using Ninject.Modules;
 
 namespace ApplicationTest
@@ -26,6 +28,9 @@ namespace ApplicationTest
             Bind<IEbaySecurity>().To<EbaySecurity>();
             Bind<IEbaySelling>().To<EbaySelling>();
             Bind<IEbayService>().To<EbayService>();
+            Bind<IEbayErrorLogger>().To<EbayErrorLogger>();
+            Bind<IEbayImageManagement>().To<EbayImageManagement>();
+            Bind<ISiteUtility>().To<SiteUtility>();
         }
     }
 }

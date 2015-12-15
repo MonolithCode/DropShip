@@ -14,6 +14,7 @@ namespace EbayModule.view
         string ServiceVersion { get; }
         string SigninUrl { get; }
         string EpsServerUrl { get; }
+        int EntriesPerRequest { get; set; }
 
         Modes Mode { get; set; }
         WarningLevelCodeType WarningLevel { get; set; }

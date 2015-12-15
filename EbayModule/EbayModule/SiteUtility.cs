@@ -40,8 +40,8 @@ namespace EbayModule
 
         public void UpdateElementName(XmlDocument doc, string oldName, string newName)
         {
-            XmlElement itemOf = (XmlElement)doc.GetElementsByTagName(oldName)[0];
-            XmlElement name = CopyElementToName(itemOf, newName);
+            var itemOf = (XmlElement)doc.GetElementsByTagName(oldName)[0];
+            var name = CopyElementToName(itemOf, newName);
             doc.ReplaceChild(name, itemOf);
         }
 

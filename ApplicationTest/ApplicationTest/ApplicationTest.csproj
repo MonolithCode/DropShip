@@ -88,6 +88,10 @@
       <Project>{579d4320-cf8e-49a6-b1ef-f44c180d7083}</Project>
       <Name>EbayModule</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\MonolithDS\MonolithDS.Logger\MonolithDS.Logger.csproj">
+      <Project>{58c5822d-c7ed-4852-9b5b-abde29059bb7}</Project>
+      <Name>MonolithDS.Logger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

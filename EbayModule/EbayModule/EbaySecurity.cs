@@ -14,12 +14,8 @@ namespace EbayModule
 
         public EbaySecurity(IEbayProperties properties, IEbayErrorLogger logger) : base (properties)
         {
-            if (properties == null){
-                throw new NotImplementedException("IEbayProperties");
-            }
-            if (properties == null){
-                throw new NotImplementedException("IEbayErrorLogger");
-            }
+            if (properties == null){throw new NotImplementedException("IEbayProperties");}
+            if (logger == null){throw new NotImplementedException("IEbayErrorLogger");}
 
             _logger = logger;
         }

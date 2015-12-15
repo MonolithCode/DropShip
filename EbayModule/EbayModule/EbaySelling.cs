@@ -15,15 +15,9 @@ namespace EbayModule
 
         public EbaySelling(IEbayProperties properties, IEbayProductManagement productManagement, IEbayErrorLogger logger) : base (properties)
         {
-            if (properties == null){
-                throw new NotImplementedException("IEbayProperties");
-            }
-            if (productManagement == null){
-                throw new NotImplementedException("IEbayProductManagement");
-            }
-            if (logger == null){
-                throw new NotImplementedException("IEbayErrorLogger");
-            }
+            if (properties == null)         { throw new NotImplementedException("IEbayProperties");}
+            if (productManagement == null)  { throw new NotImplementedException("IEbayProductManagement");}
+            if (logger == null)             { throw new NotImplementedException("IEbayErrorLogger");}
 
             ProductManagement = productManagement;
             _logger = logger;
@@ -77,7 +71,7 @@ namespace EbayModule
                 ModTimeTo = to,
                 Pagination = new PaginationType
                 {
-                    EntriesPerPage = 200,
+                    EntriesPerPage = Properties.EntriesPerRequest,
                     EntriesPerPageSpecified = true,
                     PageNumber = pageNumber,
                     PageNumberSpecified = true
@@ -103,10 +97,10 @@ namespace EbayModule
         }
 
         /// <summary>
-        /// Gets active ebay listings - Active and Sold
+        /// Gets ebay listings - Filtered by order type
         /// </summary>
-        /// <param name="orderType"></param>
-        /// <param name="pageNumber"></param>
+        /// <param name="orderType">Type of order - sold, awaiting payment etc</param>
+        /// <param name="pageNumber">Page number to return. Returns 200 per page</param>
         /// <returns></returns>
         public GetMyeBaySellingResponseType GetMyEbayListings(OrderStatusFilterCodeType orderType, int pageNumber = 1)
         {
@@ -115,7 +109,7 @@ namespace EbayModule
                 Include = true,
                 Pagination = new PaginationType
                 {
-                    EntriesPerPage = 200,
+                    EntriesPerPage = Properties.EntriesPerRequest,
                     EntriesPerPageSpecified = true,
                     PageNumber = pageNumber,
                     PageNumberSpecified = true

@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using EbayModule;
+﻿using System;
+using System.Linq;
 using EbayModule.eBaySvc;
 using EbayModule.enums;
 using EbayModule.view;
@@ -16,6 +16,8 @@ namespace MonlithDS.DAL.Repositories.Ebay
         public EbayBaseRepository(IUnitOfWork context, Modes mode, SiteCodeType siteCode)
             : base(context)
         {
+            if (context == null) { throw new NotImplementedException("IUnitOfWork"); }
+
             _mode = mode;
             _siteCode = siteCode;
         }
@@ -23,7 +25,6 @@ namespace MonlithDS.DAL.Repositories.Ebay
         public IEbayProperties EbayProperties()
         {
             return Context.EbayAPI.First().ToDomainObject(_mode, _siteCode);
-
         }
     }
 }

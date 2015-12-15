@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MonolithDS.Domain;
 using MonolithDS.Domain.Ebay;
@@ -14,9 +15,16 @@ namespace MonlithDS.DAL.Repositories.Ebay
 
         public EbayManagementRepositroy(IUnitOfWork context, IEbayBaseRepository ebayCore) : base(context)
         {
+            if (ebayCore == null)   { throw new NotImplementedException("IEbayBaseRepository"); }
+            if (context == null)    { throw new NotImplementedException("IUnitOfWork"); }
+
             EbayCore = ebayCore;
         }
 
+        /// <summary>
+        /// Returns all ebay lists in the database
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<EbayListing> GetEbayListings()
         {
             var data = (from e in Context.EbayListing

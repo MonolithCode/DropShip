@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Diagnostics;
 using System.IO;
 using EbayModule.eBaySvc;
@@ -17,9 +18,13 @@ namespace EbayModule
         private readonly ISiteUtility _utility;
         private readonly IEbayErrorLogger _logger;
 
-        public EbayImageManagement(IEbayProperties properties, IEbayErrorLogger logger) : base(properties)
+        public EbayImageManagement(IEbayProperties properties, IEbayErrorLogger logger, ISiteUtility siteUtility) : base(properties)
         {
-            _utility = new SiteUtility();
+            if (properties == null)     { throw new NotImplementedException("IEbayProperties"); }
+            if (siteUtility == null)    { throw new NotImplementedException("ISiteUtility"); }
+            if (logger == null)         { throw new NotImplementedException("IEbayErrorLogger"); }
+
+            _utility = siteUtility;
             _logger = logger;
         }
 
@@ -29,9 +34,8 @@ namespace EbayModule
             var request = new UploadSiteHostedPicturesRequestType();
             var arrayLists = new ArrayList();
             var strArrays = pictureFileList;
-            for (var i = 0; i < (int) strArrays.Length; i++)
+            foreach (var str in strArrays)
             {
-                var str = strArrays[i];
                 if (photoDisplay == PhotoDisplayCodeType.PicturePack || photoDisplay == PhotoDisplayCodeType.SuperSize)
                 {
                     request.PictureSet = PictureSetCodeType.Supersize;
@@ -44,12 +48,11 @@ namespace EbayModule
                 SetupRequestType<UploadSiteHostedPicturesRequestType>(request);
                 var credentials = Properties.EbayCredentials;
                 var apicall = service.UploadSiteHostedPictures(ref credentials, request);
-                if (apicall.Errors != null)
+                arrayLists.Add(apicall.SiteHostedPictureDetails.FullURL);
+                if (apicall.Errors == null) continue;
+                foreach (var e in apicall.Errors.ToArray())
                 {
-                    foreach (var e in apicall.Errors.ToArray())
-                    {
-                        _logger.WriteToLog(e, EventLogEntryType.Error);
-                    }
+                    _logger.WriteToLog(e, EventLogEntryType.Error);
                 }
             }
 
@@ -87,12 +90,12 @@ namespace EbayModule
             UploadSiteHostedPicturesResponseType uploadSiteHostedPicturesResponseType1 = null;
             try
             {
-                XmlDocument xmlDoc = _utility.SerializeToXmlDoc(request);
+                var xmlDoc = _utility.SerializeToXmlDoc(request);
                 _utility.FixEncoding(xmlDoc);
                 _utility.AddApiCredentials(xmlDoc, Properties);
                 _utility.UpdateElementName(xmlDoc, "UploadSiteHostedPicturesRequestType", "UploadSiteHostedPicturesRequest");
-                string outerXml = SendFile(fileName, xmlDoc.OuterXml);
-                XmlDocument xmlDocument = new XmlDocument();
+                var outerXml = SendFile(fileName, xmlDoc.OuterXml);
+                var xmlDocument = new XmlDocument();
                 xmlDocument.LoadXml(outerXml);
                 _utility.UpdateElementName(xmlDocument, "UploadSiteHostedPicturesResponse", "UploadSiteHostedPicturesResponseType");
                 outerXml = xmlDocument.OuterXml;

@@ -1,6 +1,7 @@
 ﻿using EbayModule;
 using EbayModule.eBaySvc;
 using EbayModule.enums;
+using EbayModule.Error;
 using EbayModule.view;
 using MonlithDS.DAL.Repositories.Ebay;
 using MonolithDS.Domain.Ebay;
@@ -17,7 +18,9 @@ namespace MonolithDS.DependancyResolution
                 .WithConstructorArgument("mode", Modes.Live)
                 .WithConstructorArgument("siteCode", SiteCodeType.UK);
             Bind<IEbayProperties>().To<EbayProperties>();
-
+            Bind<ISiteUtility>().To<SiteUtility>();
+            Bind<IEbayErrorLogger>().To<EbayErrorLogger>();
+            Bind<IEbayImageManagement>().To<EbayImageManagement>();
 
         }
     }

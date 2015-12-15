@@ -1,4 +1,5 @@
-﻿using EbayModule.eBaySvc;
+﻿using System;
+using EbayModule.eBaySvc;
 using EbayModule.enums;
 using EbayModule.view;
 
@@ -18,13 +19,16 @@ namespace EbayModule
             get { return Properties.Mode; }
             set { Properties.Mode = value; }
         }
-
+            
         /// <summary>
         /// Setup the service
         /// </summary>
         public EbayService(IEbayProperties properties, IEbaySecurity security, IEbaySelling selling)
             : base(properties)
         {
+            if (properties == null) {throw new NotImplementedException("IEbayProperties");}
+            if (security == null)   {throw new NotImplementedException("IEbaySecurity");}
+            if (selling == null)    {throw new NotImplementedException("IEbaySelling");}
             Security = security;
             Sales = selling;
         }

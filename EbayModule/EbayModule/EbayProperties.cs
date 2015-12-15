@@ -13,8 +13,8 @@ namespace EbayModule
         public string RunName { get; private set; }
         public string SandboxToken { get; private set; }
         public string ServiceVersion { get { return "927"; } }
+        public int EntriesPerRequest { get; set; }
         public SiteCodeType SiteId { get; set; }
-
         public WarningLevelCodeType WarningLevel { get; set; }
  
         public string SigninUrl
@@ -99,7 +99,7 @@ namespace EbayModule
             SandboxToken = sandboxToken;
             Mode = mode;
             WarningLevel = WarningLevelCodeType.Low;
+            EntriesPerRequest = 200;
         }
-
     }
 }
