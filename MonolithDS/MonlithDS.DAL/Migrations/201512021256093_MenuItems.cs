@@ -15,6 +15,8 @@ namespace MonlithDS.DAL.Migrations
                         TopMenuItemId = c.Guid(nullable: true),
                     })
                 .PrimaryKey(t => t.MenuItemId);
+
+            
             
         }
         

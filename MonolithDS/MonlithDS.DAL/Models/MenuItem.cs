@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MonlithDS.DAL.Models
+﻿namespace MonlithDS.DAL.Models
 {
     public partial class MenuItem
     {
-
+        public MonolithDS.Domain.Paging.MenuItem ToDomainObject()
+        {
+            return new MonolithDS.Domain.Paging.MenuItem
+            {
+                MenuItemId = MenuItemId,
+                Label = Label,
+                TopMenuItemId = TopMenuItemId
+            };
+        }
     }
 }
