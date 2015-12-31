@@ -38,6 +38,11 @@ namespace EbayModule.Extensions
             RequestType.Shipped = setting;
         }
 
+        public void UpdateImages()
+        {
+            
+        }
+
         public void Mark()
         {
             

@@ -121,6 +121,7 @@ namespace EbayModule
                 ActiveList = filter,
                 SoldList = filter
             };
+            request.ActiveList.Include = true;
             SetupRequestType<GetMyeBaySellingRequestType>(request);
             var credentials = Properties.EbayCredentials;
             var apicall = service.GetMyeBaySelling(ref credentials, request);

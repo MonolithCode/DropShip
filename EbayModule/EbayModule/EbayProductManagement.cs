@@ -51,5 +51,20 @@ namespace EbayModule
             return (apicall.Ack == AckCodeType.Success || apicall.Ack == AckCodeType.Warning);
         }
 
+        /// <summary>
+        /// Uploads a listing to Ebay
+        /// </summary>
+        /// <param name="itemToAdd">FixedPriceItem Request type - includes all submission detials for the request</param>
+        public void AddListing(AddFixedPriceItemRequestType itemToAdd)
+        {
+            //var request = new AddFixedPriceItemRequest {RequesterCredentials = Properties.EbayCredentials};
+            var service = EbayServiceContext(ServiceCallType.AddFixedPriceItem);
+            var cred = Properties.EbayCredentials;
+            
+
+            var apicall = service.AddFixedPriceItem(ref cred, itemToAdd);
+            var mmo = "";
+        }
+
     }
 }

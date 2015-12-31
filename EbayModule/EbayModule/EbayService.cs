@@ -10,6 +10,7 @@ namespace EbayModule
         public IEbaySecurity Security { get; private set; }
         public IEbaySelling Sales { get; private set; }
 
+
         public IEbayProperties SystemProperties
         {
             get { return Properties; }

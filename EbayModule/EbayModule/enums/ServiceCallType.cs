@@ -8,6 +8,7 @@
         GetSellerTransactions,
         GetOrders,
         CompleteSale,
-        UploadSiteHostedPictures
+        UploadSiteHostedPictures,
+        AddFixedPriceItem
     }
 }

@@ -78,7 +78,7 @@ namespace EbayModule
                     uploadSiteHostedPicturesRequestType.PictureSet = PictureSetCodeType.Supersize;
                 }
                 var uploadSiteHostedPicturesResponseType = UpLoadSiteHostedPicture(uploadSiteHostedPicturesRequestType, str);
-                arrayLists.Add(uploadSiteHostedPicturesResponseType.SiteHostedPictureDetails.FullURL);
+                //arrayLists.Add(uploadSiteHostedPicturesResponseType.SiteHostedPictureDetails.FullURL);
             }
             return (string[])arrayLists.ToArray(typeof(string));
         }
