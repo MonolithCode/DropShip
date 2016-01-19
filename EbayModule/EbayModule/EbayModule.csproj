@@ -48,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseProcedures.cs" />
-    <Compile Include="Collections\BuyerPaymentMethodCodeTypeCollection.cs" />
     <Compile Include="Error\EbayErrorLogger.cs" />
     <Compile Include="Extensions\EbayListingUpdateRequest.cs" />
     <Compile Include="EbayProductManagement.cs" />
@@ -1069,6 +1068,9 @@
       <Project>{58c5822d-c7ed-4852-9b5b-abde29059bb7}</Project>
       <Name>MonolithDS.Logger</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Collections\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

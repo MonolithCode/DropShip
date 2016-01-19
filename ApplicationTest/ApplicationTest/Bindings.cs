@@ -3,7 +3,6 @@ using EbayModule.eBaySvc;
 using EbayModule.enums;
 using EbayModule.Error;
 using EbayModule.view;
-using MonolithDS.Logger;
 using Ninject.Modules;
 
 namespace ApplicationTest
