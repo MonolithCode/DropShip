@@ -25,16 +25,24 @@ namespace ApplicationTest
             ItemType item = new ItemType
             {
                 ConditionID = 1000,
-                Country = CountryCodeType.AU,
-                Currency = CurrencyCodeType.AUD,
+                ConditionIDSpecified = true,
+                Country = CountryCodeType.US,
+                Currency = CurrencyCodeType.USD,
+                PostalCode = "10007",
+                Location = "New York, NY",
+                LocalListingSpecified = true,
                 InventoryTrackingMethod = InventoryTrackingMethodCodeType.SKU,
-                SKU = "PROD1234",
-                Description = "test - do not bid or buy",
-                Title = "test - do not bid or buy",
+                //SKU = "PROD1234",
+                Description = "Pokemon Door Handle - gotta open em all",
+                Title = "Pokemon stuffs",
                 SubTitle = "Test Item",
                 ListingDuration = "Days_7",
-                PaymentMethods = new BuyerPaymentMethodCodeType[1]
-            };
+                PaymentMethods = new BuyerPaymentMethodCodeType[1],
+                DispatchTimeMax = 3,
+                DispatchTimeMaxSpecified = true,
+                Site = SiteCodeType.US,
+                SiteSpecified = true
+        };
             //set the item condition depending on the value from GetCategoryFeatures
             //new
 
@@ -42,18 +50,18 @@ namespace ApplicationTest
 
             //Track item by SKU#
 
-            item.StartPrice = new AmountType() {  currencyID = CurrencyCodeType.GBP, Value = 20.00};
+            item.StartPrice = new AmountType() {  currencyID = CurrencyCodeType.USD, Value = 20.00};
             
 
             BuyerPaymentMethodCodeType[] payments = new BuyerPaymentMethodCodeType[1];
             payments[0] = BuyerPaymentMethodCodeType.PayPal;
             item.PaymentMethods = payments;
-            item.PayPalEmailAddress = "test@test.com";
-            item.PostalCode = "2001";
+            item.PayPalEmailAddress = "test2@test.com";
+           
 
-            item.Country = CountryCodeType.GB;
+            item.Country = CountryCodeType.US;
             item.CountrySpecified = true;
-            item.Currency = CurrencyCodeType.GBP;
+            item.Currency = CurrencyCodeType.USD;
             item.CurrencySpecified = true;
 
             //Specify Shipping Services
@@ -61,30 +69,32 @@ namespace ApplicationTest
             item.ShippingDetails = new ShippingDetailsType();
             ShippingServiceOptionsType[] shipping = new ShippingServiceOptionsType[2];
             shipping[0] = new ShippingServiceOptionsType();
-            //sitem.ShippingDetails.ShippingServiceOptions =shipping;
+            item.ShippingDetails.ShippingServiceOptions =shipping;
 
             ShippingServiceOptionsType shipservice1 = new ShippingServiceOptionsType();
-            shipservice1.ShippingService = "AU_Regular";
+            shipservice1.ShippingService = "ShippingMethodStandard";
             shipservice1.ShippingServicePriority = 1;
             shipservice1.ShippingServiceCost = new AmountType();
-            shipservice1.ShippingServiceCost.currencyID = CurrencyCodeType.AUD;
+            shipservice1.ShippingServiceCost.currencyID = CurrencyCodeType.USD;
             shipservice1.ShippingServiceCost.Value = 1.0;
+            shipservice1.ShippingTimeMin = 2;
+            shipservice1.ShippingTimeMinSpecified = true;
 
             shipservice1.ShippingServiceAdditionalCost = new AmountType();
-            shipservice1.ShippingServiceAdditionalCost.currencyID = CurrencyCodeType.AUD;
+            shipservice1.ShippingServiceAdditionalCost.currencyID = CurrencyCodeType.USD;
             shipservice1.ShippingServiceAdditionalCost.Value = 1.0;
 
-            //item.ShippingDetails.ShippingServiceOptions[0] = shipservice1;
+            item.ShippingDetails.ShippingServiceOptions[0] = shipservice1;
 
             ShippingServiceOptionsType shipservice2 = new ShippingServiceOptionsType();
             shipservice2.ShippingService = "AU_Express";
             shipservice2.ShippingServicePriority = 2;
             shipservice2.ShippingServiceCost = new AmountType();
-            shipservice2.ShippingServiceCost.currencyID = CurrencyCodeType.AUD;
+            shipservice2.ShippingServiceCost.currencyID = CurrencyCodeType.USD;
             shipservice2.ShippingServiceCost.Value = 4.0;
 
             shipservice2.ShippingServiceAdditionalCost = new AmountType();
-            shipservice2.ShippingServiceAdditionalCost.currencyID = CurrencyCodeType.AUD;
+            shipservice2.ShippingServiceAdditionalCost.currencyID = CurrencyCodeType.USD;
             shipservice2.ShippingServiceAdditionalCost.Value = 1.0;
 
             //item.ShippingDetails.ShippingServiceOptions[1] = shipservice2;
@@ -95,8 +105,9 @@ namespace ApplicationTest
 
             item.Quantity = 10;
             item.StartPrice = new AmountType();
-            item.StartPrice.currencyID = CurrencyCodeType.AUD;
-            item.StartPrice.Value = 10;
+            item.StartPrice.currencyID = CurrencyCodeType.USD;
+            item.StartPrice.Value = 10.00;
+     
 
             item.PrimaryCategory = new CategoryType();
             item.PrimaryCategory.CategoryID = "156955";
@@ -134,6 +145,7 @@ namespace ApplicationTest
             item.PictureDetails.GalleryType = GalleryTypeCodeType.None;
             item.PictureDetails.GalleryTypeSpecified = true;
             req.Item = item;
+            
 
             Service.Sales.ProductManagement.AddListing(req);
         }

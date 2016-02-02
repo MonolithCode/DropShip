@@ -60,7 +60,7 @@ namespace EbayModule
             //var request = new AddFixedPriceItemRequest {RequesterCredentials = Properties.EbayCredentials};
             var service = EbayServiceContext(ServiceCallType.AddFixedPriceItem);
             var cred = Properties.EbayCredentials;
-            
+            //itemToAdd.Item.Site = SiteCodeType.UK;
 
             var apicall = service.AddFixedPriceItem(ref cred, itemToAdd);
             var mmo = "";
