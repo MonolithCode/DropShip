@@ -1,4 +1,5 @@
-﻿using EbayModule.Extensions;
+﻿using EbayModule.eBaySvc;
+using EbayModule.Extensions;
 
 namespace EbayModule.view
 {
@@ -6,5 +7,6 @@ namespace EbayModule.view
     {
         IEbayImageManagement ImageManager { get; }
         bool UpdateListing(EbayListingUpdateRequest request);
+        void AddListing(AddFixedPriceItemRequestType itemToAdd);
     }
 }
