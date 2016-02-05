@@ -11,6 +11,6 @@
     </providers>
   </entityFramework>
   <connectionStrings>
-    <add name="DSEntities" connectionString="Data Source=AGIBSON-PC81;Initial Catalog=AG_DS;Integrated Security=True" providerName="System.Data.SqlClient" />
+    <add name="DSEntities" connectionString="data source=XGP\DS;initial catalog=DS_ORIGINAL;user id=svcAdmin;password=Pr10r1tyF1x;MultipleActiveResultSets=True;App=EntityFramework" providerName="System.Data.SqlClient" />
   </connectionStrings>
 </configuration>
