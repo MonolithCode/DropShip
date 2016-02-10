@@ -11,9 +11,10 @@ namespace AmazonModule
     {
         private AmazonAPI AmazonApi { get; set; }
 
-        public AmazonServiceCaller()
+        public AmazonServiceCaller(string accessKey, string secretKey, string associateTag)
         {
-            AmazonApi = new AmazonAPI("AKIAIJIVM4Y5BFOT4OCA", "vZRZ/6iWQpeH5NRaa0v14b/llCBabKQFCmaCtQ3L", "aarongibson-21");
+            AmazonApi = new AmazonAPI(accessKey, secretKey, associateTag);
+            //AmazonApi = new AmazonAPI("AKIAIJIVM4Y5BFOT4OCA", "vZRZ/6iWQpeH5NRaa0v14b/llCBabKQFCmaCtQ3L", "aarongibson-21");
         }
 
         public void BrowseNodeLoopup()

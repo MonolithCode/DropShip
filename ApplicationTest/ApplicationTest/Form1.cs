@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using AmazonModule;
 using EbayModule;
 using EbayModule.eBaySvc;
-using EbayModule.enums;
-using EbayModule.Extensions;
 using EbayModule.view;
 
 namespace ApplicationTest
@@ -167,6 +166,14 @@ namespace ApplicationTest
             //var up = Service.Sales.ProductManagement.UpdateListing(req);
             //var mo = Service.Sales.GetSales()
             var mo = "";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var a = new AmazonServiceCaller("AKIAJT4GJIW3AZGMRPHA", "jRJwzrHBMZFd4NKCF+61uKUKffLcW6/fUHsTP3oq", "aarongibson-21");
+            //var res = a.ItemSearch("Pokemon", 0);
+            var res = a.GetProductDetailsFromAsin("B009N93I8K");
+            Console.WriteLine(res.ItemAttributes.Title);
         }
     }
 }

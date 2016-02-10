@@ -10,7 +10,7 @@ namespace EbayModule
 {
     public class EbayProductManagement : BaseProcedures, IEbayProductManagement
     {
-        public IEbayImageManagement ImageManager { get; private set; }
+        public IEbayImageManagement ImageManager { get; }
         private readonly IEbayErrorLogger _logger;
 
         public EbayProductManagement(IEbayProperties properties,IEbayImageManagement itemManagement, IEbayErrorLogger logger)

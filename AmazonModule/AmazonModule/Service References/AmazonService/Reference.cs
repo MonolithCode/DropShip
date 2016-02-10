@@ -3195,7 +3195,7 @@ namespace AmazonModule.AmazonService {
         
         private Image largeImageField;
         
-        private ImageSet[][] imageSetsField;
+        private ImageSet[] imageSetsField;
         
         private ItemAttributes itemAttributesField;
         
@@ -3342,7 +3342,7 @@ namespace AmazonModule.AmazonService {
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(Order=9)]
         [System.Xml.Serialization.XmlArrayItemAttribute("ImageSet", typeof(ImageSet), IsNullable=false)]
-        public ImageSet[][] ImageSets {
+        public ImageSet[] ImageSets {
             get {
                 return this.imageSetsField;
             }

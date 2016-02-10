@@ -84,6 +84,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\AmazonModule\AmazonModule\AmazonModule.csproj">
+      <Project>{9cfd247a-ae35-4423-b3e0-884457096846}</Project>
+      <Name>AmazonModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\EbayModule\EbayModule\EbayModule.csproj">
       <Project>{579d4320-cf8e-49a6-b1ef-f44c180d7083}</Project>
       <Name>EbayModule</Name>
