@@ -6,6 +6,7 @@ using EbayModule.enums;
 using EbayModule.Error;
 using EbayModule.Extensions;
 using EbayModule.view;
+
 namespace EbayModule
 {
     public class EbayProductManagement : BaseProcedures, IEbayProductManagement
@@ -62,8 +63,17 @@ namespace EbayModule
             var cred = Properties.EbayCredentials;
             //itemToAdd.Item.Site = SiteCodeType.UK;
 
-            var apicall = service.AddFixedPriceItem(ref cred, itemToAdd);
-            var mmo = "";
+            //Can error
+            try
+            {
+                service.AddFixedPriceItem(ref cred, itemToAdd);
+            }
+            catch (Exception  ex)
+            {
+
+                throw;
+            }
+            
         }
 
     }
